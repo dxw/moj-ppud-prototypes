@@ -1,0 +1,155 @@
+{% extends "release/layout.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+  Manage prison release
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">
+          Find someone
+        </h1>
+
+        <form action="" method="get" class="govuk-!-padding-5 govuk-!-margin-bottom-9 search-panel">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <div class="govuk-form-group">
+                <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="prison-number">
+                  Prison number
+                </label>
+                <span id="prison-number-hint" class="govuk-hint moj-search__hint ">
+                  Enter full or partial number
+                </span>
+                <input class="govuk-input moj-search__input" id="prison-number" name="prison-number" type="search" aria-describedby="prison-number-hint">
+              </div>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <div class="govuk-form-group">
+                <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="file-reference-number">
+                  File reference number
+                </label>
+                <span id="file-reference-number-hint" class="govuk-hint moj-search__hint ">
+                  Enter full or partial number
+                </span>
+                <input class="govuk-input moj-search__input" id="file-reference-number" name="file-reference-number" type="search" aria-describedby="file-reference-number-hint">
+              </div>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              <div class="govuk-form-group">
+                <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="name-number">
+                  First name or family name
+                </label>
+                <span id="name-hint" class="govuk-hint moj-search__hint ">
+                  Enter full or partial name
+                </span>
+                <input class="govuk-input moj-search__input" id="name-number" name="name-number" type="search" aria-describedby="name-hint">
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="results" value="1">
+          <button type="submit" class="govuk-button govuk-!-margin-0" data-module="govuk-button">
+            Search
+          </button>
+          <a href="#" class="govuk-link button-link govuk-body-m">
+            Show extra search criteria
+          </a>
+        </form>
+
+        {% if query.results %}
+        <h2 class="govuk-heading-m">
+          3 people found
+        </h1>
+        {% set viewButton = "<a href='#'>View</a>" %}
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Prison number"
+            },
+            {
+              text: "Family name"
+            },
+            {
+              text: "First name"
+            },
+            {
+              text: "Date of birth"
+            },
+            {
+              text: "Index offence"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "A721445"
+              },
+              {
+                text: "Kim"
+              },
+              {
+                text: "Kate"
+              },
+              {
+                text: "23 Feb 1970"
+              },
+              {
+                text: "Murder"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "B721447"
+              },
+              {
+                text: "Smith"
+              },
+              {
+                text: "Vijay"
+              },
+              {
+                text: "14 Dec 1981"
+              },
+              {
+                text: "Murder"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "F729861"
+              },
+              {
+                text: "Thomas"
+              },
+              {
+                text: "Chris"
+              },
+              {
+                text: "01 Mar 1965"
+              },
+              {
+                text: "Murder"
+              },
+              {
+                html: viewButton
+              }
+            ]
+          ]
+        }) }}
+
+        {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

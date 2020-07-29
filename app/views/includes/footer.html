@@ -1,0 +1,17 @@
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+
+
+{{ govukFooter({
+    meta: {
+        items: [
+            {
+                href: "https://govuk-prototype-kit.herokuapp.com/",
+                text: "GOV.UK Prototype Kit v9.8.0"
+            },
+            {
+                href: "/prototype-admin/clear-data",
+                text: "Clear data"
+            }
+        ]
+    }
+}) }}
