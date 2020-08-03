@@ -1,0 +1,146 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "govuk/components/summary-list/macro.njk" import govukSummaryList -%}
+
+{% block pageTitle %}
+  John Smith - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+{{ 
+  mojIdentityBar({
+    title: {
+      html: "123456789 <b style='margin: 0 15px'>John Smith</b>" + govukTag({text: "High public interest", classes: "govuk-tag--red"})
+    }
+  }) 
+}} 
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'overview' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          Overview
+        </h1>
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Index offence"
+              },
+              value: {
+                text: "Murder 02 June 2000"
+              }
+            },
+            {
+              key: {
+                text: "Flags"
+              },
+              value: {
+                html: "1 previous offence <a href='#previous' class='govuk-body-s govuk-!-margin-left-1'>view details</a><br>High public interest"
+              }
+            }
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-9">
+          About the offender
+        </h2>
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                text: "20 September 1976 (44 years)"
+              }
+            },
+            {
+              key: {
+                text: "First name"
+              },
+              value: {
+                text: "John"
+              }
+            },
+            {
+              key: {
+                text: "Family name"
+              },
+              value: {
+                text: "Smith"
+              }
+            }
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-9">
+          About the offence
+        </h2>
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Sentence type"
+              },
+              value: {
+                text: "Indeterminate"
+              }
+            },
+            {
+              key: {
+                text: "Sentencing court"
+              },
+              value: {
+                text: "Central criminal court"
+              }
+            },
+            {
+              key: {
+                text: "Date of sentence"
+              },
+              value: {
+                text: " 20 Feb 2001"
+              }
+            }
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-9">
+          About the tariff
+        </h2>
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Tariff expiry date"
+              },
+              value: {
+                html: "<span class='empty'>Empty</span>"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#add-tariff-expiry",
+                    text: "Add",
+                    visuallyHiddenText: "tariff expiry date"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+    </div>
+  </div>
+
+{% endblock %}

@@ -100,7 +100,17 @@
               }
           ]
       })
-  }} 
+  }}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        {% block identityBar %}
+        {% endblock %}
+        {% block subNavigation %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

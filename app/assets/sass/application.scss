@@ -27,3 +27,7 @@ $govuk-assets-path: '/govuk/assets/';
     margin: 0;
     display: inline-block;
 }
+
+.empty {
+    color: govuk-colour("mid-grey");
+}
