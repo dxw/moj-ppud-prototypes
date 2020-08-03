@@ -1,0 +1,72 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "moj/components/task-list/macro.njk" import mojTaskList -%}
+
+{% block pageTitle %}
+  John Smith - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+{{ 
+  mojIdentityBar({
+    title: {
+      html: "123456789 <b style='margin: 0 15px'>John Smith</b>" + govukTag({text: "High public interest", classes: "govuk-tag--red"})
+    }
+  }) 
+}} 
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'milestones' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <ol class="moj-task-list">
+        <li>
+          <h2 class="moj-task-list__section">
+            <span class="moj-task-list__section-number">1. </span>Check dates</h2>
+          <ul class="moj-task-list__items">
+            <li class="moj-task-list__item">
+              <a class="moj-task-list__task-name" href="#tariff_expiration_date">Check tariff expiration date</a>
+              {{ govukTag({text: "Not started", classes: "govuk-tag--grey"}) }}
+            </li>
+            
+            <li class="moj-task-list__item">
+              <a class="moj-task-list__task-name" href="#">Let involved parties know specific dates</a>
+              {{ govukTag({text: "Not started", classes: "govuk-tag--grey"}) }}
+            </li>
+          </ul>
+        </li>
+        
+        <li>
+          <h2 class="moj-task-list__section">
+            <span class="moj-task-list__section-number">2. </span>Check documents</h2>
+          <ul class="moj-task-list__items">
+            <li class="moj-task-list__item">
+              <a class="moj-task-list__task-name" href="#core-dossier">Prepare core dossier</a>
+              {{ govukTag({text: "Not started", classes: "govuk-tag--grey"}) }}
+            </li>
+            
+            <li class="moj-task-list__item">
+              <a class="moj-task-list__task-name" href="#risk-assessments">Risk assessments</a>
+              {{ govukTag({text: "Not started", classes: "govuk-tag--grey"}) }}
+            </li>
+            
+            <li class="moj-task-list__item">
+              <a class="moj-task-list__task-name" href="#mca-review">MCA review</a>
+              {{ govukTag({text: "Not started", classes: "govuk-tag--grey"}) }}
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}
