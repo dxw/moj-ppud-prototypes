@@ -7,5 +7,9 @@ router.use(function (req, res, next) {
     next()
 })
 
+router.get('/release', function (req, res) {
+    res.redirect('/release/search')
+})
+
 
 module.exports = router
