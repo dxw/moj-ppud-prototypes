@@ -8,7 +8,7 @@ router.use(function (req, res, next) {
 })
 
 router.get('/release', function (req, res) {
-    res.redirect('/release/search')
+    res.redirect('/release/todo')
 })
 
 
