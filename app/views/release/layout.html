@@ -85,11 +85,12 @@
           items: [
               {
                   text: 'Find someone',
-                  href: '/release',
-                  active: true
+                  href: '/release/search',
+                  active: currentPage == 'search'
               }, {
                   text: 'To do',
-                  href: '/release'
+                  href: '/release/todo',
+                  active: currentPage == 'todo'
               }, {
                   text: 'Settings',
                   href: '/'
