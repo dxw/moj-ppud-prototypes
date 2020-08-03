@@ -1,0 +1,214 @@
+{% extends "release/layout.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% set currentPage = 'todo' %}
+
+{% block pageTitle %}
+  To do - Manage prison release
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">
+          To do
+        </h1>
+
+        <h2 class="govuk-heading-m">
+          <span class="govuk-!-font-size-48">3</span> new cases to review
+        </h2>
+        {% set viewButton = "<a href='#'>View</a>" %}
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Prison number"
+            },
+            {
+              text: "Status"
+            },
+            {
+              text: "Sentence"
+            },
+            {
+              text: "Owning"
+            },
+            {
+              text: "Priority"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "A721445"
+              },
+              {
+                html: govukTag({text: "New", classes: "govuk-tag--blue"})
+              },
+              {
+                text: "Indeterminate"
+              },
+              {
+                text: "Review caseworker"
+              },
+              {
+                text: "white"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "B721447"
+              },
+              {
+                html: govukTag({text: "New", classes: "govuk-tag--blue"})
+              },
+              {
+                text: "Indeterminate"
+              },
+              {
+                text: "Review caseworker"
+              },
+              {
+                text: "white"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "F729861"
+              },
+              {
+                html: govukTag({text: "New", classes: "govuk-tag--blue"})
+              },
+              {
+                text: "Indeterminate"
+              },
+              {
+                text: "Review caseworker"
+              },
+              {
+                text: "white"
+              },
+              {
+                html: viewButton
+              }
+            ]
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">
+          <span class="govuk-!-font-size-48">8</span> cases in progress
+
+          <span style="float:right" class="govuk-body-s govuk-!-margin-top-5">
+            <a href="#all">Show all</a>
+          </span>
+        </h2>
+        {% set viewButton = "<a href='#'>View</a>" %}
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Prison number"
+            },
+            {
+              text: "Status"
+            },
+            {
+                text: ""
+            },
+            {
+              text: "Sentence"
+            },
+            {
+              text: "Owning"
+            },
+            {
+              text: "Priority"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Z721443"
+              },
+              {
+                html: govukTag({text: "On track", classes: "govuk-tag--green"})
+              },
+              {
+                text: ""
+              },
+              {
+                text: "Indeterminate"
+              },
+              {
+                text: "Review caseworker"
+              },
+              {
+                text: "white"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "Y721491"
+              },
+              {
+                html: govukTag({text: "On track", classes: "govuk-tag--green"})
+              },
+              {
+                text: ""
+              },
+              {
+                text: "Indeterminate"
+              },
+              {
+                text: "Review caseworker"
+              },
+              {
+                text: "white"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "F729861"
+              },
+              {
+                html: govukTag({text: "2 days left", classes: "govuk-tag--red"})
+              },
+              {
+                text: "Waiting on quality check"
+              },
+              {
+                text: "Indeterminate"
+              },
+              {
+                text: "Review caseworker"
+              },
+              {
+                text: "white"
+              },
+              {
+                html: viewButton
+              }
+            ]
+          ]
+        }) }}
+    </div>
+  </div>
+
+{% endblock %}
