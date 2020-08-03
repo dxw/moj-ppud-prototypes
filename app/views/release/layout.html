@@ -64,7 +64,9 @@
 
                 <ul class="moj-header__navigation-list">
                     <li class="moj-header__navigation-item">
-                        <a class="moj-header__navigation-link" href="#" aria-current="page">Vinnith Johnson</a>
+                        <a class="moj-header__navigation-link" href="#" aria-current="page">
+                          {{ data['caseworker_name'] | d('Vinnith Johnson') }}
+                        </a>
                     </li>
 
                     <li class="moj-header__navigation-item">
