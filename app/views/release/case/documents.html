@@ -1,0 +1,161 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions -%}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+
+{% block pageTitle %}
+  John Smith - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+{{ 
+  mojIdentityBar({
+    title: {
+      html: "123456789 <b style='margin: 0 15px'>John Smith</b>" + govukTag({text: "High public interest", classes: "govuk-tag--red"})
+    }
+  }) 
+}} 
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'documents' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ mojPageHeaderActions({
+        heading: {
+          html: '<h1 class="govuk-heading-xl">Documents</h1>'
+        },
+        items: [{
+          text: 'Upload new',
+          classes: 'govuk-button--secondary'
+        }]
+      }) }}
+
+      {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Title"
+            },
+            {
+              text: "Format"
+            },
+            {
+              text: "Date added"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#document'>Order for Imprisonment Indictment</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                html: "<a href='#document'>view</a>"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Previous convictions</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                html: "<a href='#document'>view</a>"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Police summary of evidence</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                html: "<a href='#document'>view</a>"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Prosecution case summary</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                html: "<a href='#document'>view</a>"
+              }
+            ],[
+              {
+                html: "<a href='#document'>Pre-trial medical evaluation</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                html: "<a href='#document'>view</a>"
+              }
+            ],[
+              {
+                html: "<a href='#document'>Post-sentence probabtion report</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                html: "<a href='#document'>view</a>"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Sentencing remarks</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                html: "<a href='#document'>view</a>"
+              }
+            ]
+          ]
+        }) }}
+    </div>
+  </div>
+
+{% endblock %}
