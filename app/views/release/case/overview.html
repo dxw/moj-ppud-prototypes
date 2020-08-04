@@ -133,6 +133,13 @@
         <h2 class="govuk-heading-l govuk-!-margin-top-9">
           About the tariff
         </h2>
+
+        {% if data['minimum_term-years'] %}
+          {% set tariffDateHtml = "12 September 2021" %}
+        {% else %}
+          {% set tariffDateHtml = "<span class='empty'>Empty</span>" %}
+        {% endif %}
+
         {{ govukSummaryList({
           rows: [
             {
@@ -140,7 +147,7 @@
                 text: "Tariff expiry date"
               },
               value: {
-                html: "<span class='empty'>Empty</span>"
+                html: tariffDateHtml
               },
               actions: {
                 items: [
