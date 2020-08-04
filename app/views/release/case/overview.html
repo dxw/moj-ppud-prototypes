@@ -2,6 +2,7 @@
 {%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
 {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 {%- from "govuk/components/summary-list/macro.njk" import govukSummaryList -%}
+{%- from "govuk/components/details/macro.njk" import govukDetails -%}
 
 {% block pageTitle %}
   John Smith - Manage prison release
@@ -31,6 +32,11 @@
         <h1 class="govuk-heading-xl">
           Overview
         </h1>
+        {{ govukDetails({
+          summaryText: "Check where this data comes from",
+          text: "The data on this page is pulled from NOMIS and nDelius"
+        }) }}
+
         {{ govukSummaryList({
           rows: [
             {
