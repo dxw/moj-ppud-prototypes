@@ -1,0 +1,56 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "govuk/components/button/macro.njk" import govukButton -%}
+{%- from "govuk/components/panel/macro.njk" import govukPanel -%}
+{%- from "govuk/components/details/macro.njk" import govukDetails -%}
+
+{% block pageTitle %}
+  Calculate tariff expiration date - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+{{ 
+  mojIdentityBar({
+    title: {
+      html: "123456789 <b style='margin: 0 15px'>John Smith</b>" + govukTag({text: "High public interest", classes: "govuk-tag--red"})
+    }
+  }) 
+}} 
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'milestones' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Calculate tariff expiration date</h1>
+      <form action="/release/case/milestones" method="get">
+        {{ govukPanel({
+          titleText: "Tariff expiry date",
+          html: "12 September 2021"
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "See how it's been calculated",
+          text: ""
+        }) }}
+
+        <input type="hidden" name="notify-prison" value="1">
+
+        <div class="govuk-!-padding-top-3">
+          {{ govukButton({
+            text: "Notify prison"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

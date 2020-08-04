@@ -1,0 +1,98 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "govuk/components/date-input/macro.njk" import govukDateInput -%}
+{%- from "govuk/components/summary-list/macro.njk" import govukSummaryList -%}
+{%- from "govuk/components/inset-text/macro.njk" import govukInsetText -%}
+{%- from "govuk/components/button/macro.njk" import govukButton -%}
+
+
+
+{% block pageTitle %}
+  Calculate tariff expiration date - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+{{ 
+  mojIdentityBar({
+    title: {
+      html: "123456789 <b style='margin: 0 15px'>John Smith</b>" + govukTag({text: "High public interest", classes: "govuk-tag--red"})
+    }
+  }) 
+}} 
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'milestones' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Calculate tariff expiration date</h1>
+      <form action="/release/case/confirm-tariff-expiration-date" method="get">
+        {{ govukDateInput({
+          id: "minimum_term",
+          namePrefix: "minimum_term",
+          fieldset: {
+            legend: {
+              text: "Enter minimum term",
+              isPageHeading: false
+            }
+          },
+          hint: {
+            text: "This is the order for imprisonment"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2",
+              name: "years"
+            },
+            {
+              classes: "govuk-input--width-2",
+              name: "months"
+            }
+          ]
+        }) }}
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Sentence start date"
+              },
+              value: {
+                text: "12 March 1990"
+              },
+              actions: {
+                  items: [
+                    {
+                      href: "#edit-sentence-start",
+                      text: "Edit",
+                      visuallyHiddenText: "sentence start date"
+                    }
+                  ]
+                }
+            }
+          ]
+        }) }}
+        
+        {{ govukInsetText({
+          text: "Judge has accepted the remand time"
+        }) }}
+
+        {{ govukButton({
+          text: "Calculate"
+        }) }}
+
+        <p><a href="#add-manually" class="govuk-link">Add manually</a></p>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

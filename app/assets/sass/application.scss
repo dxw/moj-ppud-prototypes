@@ -31,3 +31,7 @@ $govuk-assets-path: '/govuk/assets/';
 .empty {
     color: govuk-colour("mid-grey");
 }
+
+.moj-task-list .govuk-tag--grey {
+    float: right;
+}
