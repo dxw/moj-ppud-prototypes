@@ -4,6 +4,7 @@
 {%- from "govuk/components/button/macro.njk" import govukButton -%}
 {%- from "govuk/components/panel/macro.njk" import govukPanel -%}
 {%- from "govuk/components/details/macro.njk" import govukDetails -%}
+{%- from "govuk/components/summary-list/macro.njk" import govukSummaryList -%}
 
 {% block pageTitle %}
   Calculate tariff expiration date - Manage prison release
@@ -33,8 +34,28 @@
       <h1 class="govuk-heading-l">Calculate tariff expiration date</h1>
       <form action="/release/case/milestones" method="get">
         {{ govukPanel({
-          titleText: "Tariff expiry date",
-          html: "12 September 2021"
+          titleText: "Tariff expiry date calculated"
+        }) }}
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Tariff expiration date"
+              },
+              value: {
+                text: "12 September 2021"
+              }
+            },
+            {
+              key: {
+                text: "Review date"
+              },
+              value: {
+                text: "12 March 2021"
+              }
+            }
+          ]
         }) }}
 
         {{ govukDetails({

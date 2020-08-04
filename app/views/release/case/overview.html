@@ -136,8 +136,10 @@
 
         {% if data['minimum_term-years'] %}
           {% set tariffDateHtml = "12 September 2021" %}
+          {% set reviewDateHtml = "12 March 2021" %}
         {% else %}
           {% set tariffDateHtml = "<span class='empty'>Empty</span>" %}
+          {% set reviewDateHtml = "<span class='empty'>Empty</span>" %}
         {% endif %}
 
         {{ govukSummaryList({
@@ -157,6 +159,14 @@
                     visuallyHiddenText: "tariff expiry date"
                   }
                 ]
+              }
+            },
+            {
+              key: {
+                text: "Review date"
+              },
+              value: {
+                html: reviewDateHtml
               }
             }
           ]
