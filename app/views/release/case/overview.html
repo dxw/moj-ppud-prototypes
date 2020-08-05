@@ -129,8 +129,8 @@
         </h2>
 
         {% if data['minimum_term-years'] %}
-          {% set tariffDateHtml = "12 September 2021" %}
-          {% set reviewDateHtml = "12 March 2021" %}
+          {% set tariffDateHtml = config.tariffExpiryDate %}
+          {% set reviewDateHtml = config.firstReviewDate %}
           {% set tariffActions = [] %}
         {% else %}
           {% set tariffDateHtml = "<span class='empty'>Empty</span>" %}

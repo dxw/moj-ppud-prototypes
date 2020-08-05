@@ -29,6 +29,11 @@ module.exports = {
   cookieText: 'GOV.UK uses cookies to make the site simpler. <a href="#">Find out more about cookies</a>',
 
   // Enable or disable Browser Sync
-  useBrowserSync: 'true'
+  useBrowserSync: 'true',
+
+  prototypeData: {
+    tariffExpiryDate: "21 December 2025",
+    firstReviewDate: "21 June 2025"
+  }
 
 }
