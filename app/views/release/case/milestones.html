@@ -38,7 +38,7 @@
           <ul class="moj-task-list__items">
             <li class="moj-task-list__item">
               <a class="moj-task-list__task-name" href="/release/case/calculate-tariff-expiration-date">Check tariff expiration date</a>
-              {% if data['minimum_term-years'] %}
+              {% if data['dates-calculated'] %}
                 {{ govukTag({text: "Complete", classes: "moj-task-list__task-completed"}) }}
               {% else %}
                 {{ govukTag({text: "Not started", classes: "govuk-tag--grey"}) }}
@@ -47,7 +47,11 @@
             
             <li class="moj-task-list__item">
               <a class="moj-task-list__task-name" href="#">Let involved parties know specific dates</a>
-              {{ govukTag({text: "Not started", classes: "govuk-tag--grey"}) }}
+              {% if data['notify-prison'] %}
+                {{ govukTag({text: "Complete", classes: "moj-task-list__task-completed"}) }}
+              {% else %}
+                {{ govukTag({text: "Not started", classes: "govuk-tag--grey"}) }}
+              {% endif%}
             </li>
           </ul>
         </li>
