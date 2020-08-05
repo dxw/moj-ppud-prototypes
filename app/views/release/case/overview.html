@@ -1,5 +1,5 @@
 {% extends "release/layout.html" %}
-{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+
 {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 {%- from "govuk/components/summary-list/macro.njk" import govukSummaryList -%}
 {%- from "govuk/components/details/macro.njk" import govukDetails -%}
@@ -9,13 +9,7 @@
 {% endblock %}
 
 {% block identityBar %}
-{{ 
-  mojIdentityBar({
-    title: {
-      html: "123456789 <b style='margin: 0 15px'>John Smith</b>" + govukTag({text: "High public interest", classes: "govuk-tag--red"})
-    }
-  }) 
-}} 
+  {% include "release/case/_identity_bar.html" %}
 {% endblock %}
 
 {% block subNavigation %}
