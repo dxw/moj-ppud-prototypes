@@ -11,13 +11,13 @@
 {% endblock %}
 
 {% block identityBar %}
-{{ 
+{{
   mojIdentityBar({
     title: {
       html: "123456789 <b style='margin: 0 15px'>John Smith</b>" + govukTag({text: "High public interest", classes: "govuk-tag--red"})
     }
-  }) 
-}} 
+  })
+}}
 {% endblock %}
 
 {% block subNavigation %}
@@ -44,15 +44,15 @@
                 text: "Tariff expiration date"
               },
               value: {
-                text: "12 September 2021"
+                text: "21 June 2024"
               }
             },
             {
               key: {
-                text: "Review date"
+                text: "First Review date"
               },
               value: {
-                text: "12 March 2021"
+                text: "21 December 2024"
               }
             }
           ]
@@ -60,14 +60,14 @@
 
         {{ govukDetails({
           summaryText: "See how it's been calculated",
-          text: ""
+          text: "The days spent in remand is substracted from the minimum term set out by the judge from the sentence start date "
         }) }}
 
         <input type="hidden" name="notify-prison" value="1">
 
         <div class="govuk-!-padding-top-3">
           {{ govukButton({
-            text: "Notify prison"
+            text: "Send notification letter"
           }) }}
         </div>
       </form>
