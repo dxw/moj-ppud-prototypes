@@ -1,0 +1,92 @@
+
+{% extends "layout.html" %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  PDF validation example
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        PDF validation example
+      </h1>
+
+      {% if errors | length %}
+        <div class="moj-banner">
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+          <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+          C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" /></svg>
+          <div class="moj-banner__message">
+            <h2 class="govuk-heading-m">Please verify that you uploaded the correct document</h2>
+            <ul>
+              {% if 'document' in errors %}<li>We couldn't find the expected document title</li>{% endif %}
+              {% if 'full_name' in errors %}<li>We couldn't find the expected offender name</li>{% endif %}
+            </ul>
+          </div>
+
+        </div> 
+      {% endif %}
+
+      <form action="/pdf-validation" method="POST" enctype="multipart/form-data">
+      {{ govukSelect({
+        id: "document",
+        name: "document",
+        label: {
+          text: "Document"
+        },
+        items: [
+          {
+            value: "Trial Judge’s Report",
+            text: "Trial Judge’s Report"
+          },
+          {
+            value: "OASys report",
+            text: "OASys report"
+          }
+        ]
+      }) }}
+      {{ govukSelect({
+        id: "full_name",
+        name: "full_name",
+        label: {
+          text: "Full name"
+        },
+        items: [
+          {
+            value: "John Smith",
+            text: "John Smith"
+          },
+          {
+            value: "Ted Taylor",
+            text: "Ted Taylor"
+          }
+        ]
+      }) }}
+      {{ govukFileUpload({
+        id: "file",
+        name: "file",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+      {{ 
+        govukButton({
+          text: "Upload"
+        }) 
+      }}
+      </form>
+
+      <!--
+      <code>
+        {{ extractedText | dump }}
+      </code>
+      -->
+    </div>
+  </div>
+
+{% endblock %}
