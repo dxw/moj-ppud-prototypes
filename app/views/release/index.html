@@ -1,0 +1,158 @@
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  List of prototypes
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Manage prison release alpha
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Users and their needs
+      </h2>
+      
+      <h3 class="govuk-heading-s">
+        PPCS Caseworkers
+      </h3>
+      {{ govukDetails({
+        summaryText: "Key needs",
+        text: "tbc"
+      }) }}
+
+
+      <h3 class="govuk-heading-s">
+        PPCS Team Manager
+      </h3>
+      {{ govukDetails({
+        summaryText: "Key needs",
+        text: "tbc"
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Prototypes
+      </h2>
+
+      <div class="moj-timeline">
+        <div class="moj-timeline__item">
+            <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Check documentation prototype v1</h2>
+            </div>
+            <p class="moj-timeline__date">
+                <time datetime="2020-08-19T00:00:00.000Z">19 August 2020</time>
+            </p>
+            <div class="moj-timeline__description">
+                <p>Test the verification of the documents that make up a dossier</p>
+                <a class="govuk-button" href="/release/case/check-documentation">View</a>
+                
+                <details class="govuk-details govuk-!-margin-bottom-0">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Main changes
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Change</th>
+                                <th scope="col" class="govuk-table__header">Why we made it</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">One document is incorrect</td>
+                                    <td class="govuk-table__cell">To find out more about dossiers having incorrect documents</td>
+                                </tr>
+
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">Users can flag incorrect documents and give reasons</td>
+                                    <td class="govuk-table__cell">To test if a semi-automated process of re-requesting documents can help with the problem</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="moj-timeline__item">
+            <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Tariff expiration date calculation prototype v1</h2>
+            </div>
+            <p class="moj-timeline__date">
+                <time datetime="2020-07-27T00:00:00.000Z">27 July 2020</time>
+            </p>
+            <div class="moj-timeline__description">
+                <p>Test the process of calculating the tariff expiration date for indeterminate sentences</p>
+                <a class="govuk-button" href="/release/case/milestones">View</a>
+                
+                <details class="govuk-details govuk-!-margin-bottom-0">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Main changes
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Change</th>
+                                <th scope="col" class="govuk-table__header">Why we made it</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">Include time spent in remand</td>
+                                    <td class="govuk-table__cell">This is required as it is subracted from the minimum term</td>
+                                </tr>
+
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">Surface related documents on calculation page</td>
+                                    <td class="govuk-table__cell">To test if this will help with the calculation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+            </div>
+        </div>
+        
+    </div>
+
+  </div>
+  <div class="govuk-grid-column-one-third  govuk-!-margin-top-9">
+        <aside class="app-related-items  govuk-!-margin-top-6" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+                More information
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+            <ul class="govuk-list govuk-!-font-size-16">
+                <li>
+                    <a href="https://docs.google.com/presentation/d/187Ntq3REWUG-xHBzXh3SH5QNJM9W5pQL3Di1F6Z-l1U/edit?usp=sharing">
+                        Living deck
+                    </a>
+                </li>
+                <li>
+                    <a href="https://docs.google.com/presentation/d/1BQ6-3cPTVTe0kWqFq1D2fllQQQKrni76z6wz73a9Y-M/edit?usp=sharing">
+                        Timelines and research
+                    </a>
+                </li>
+                <li>
+                    <a href="https://drive.google.com/drive/u/0/folders/1IEKCt2GBVo5IHeY8bgIOloYpTf7vtxNq">
+                        Show and tells
+                    </a>
+                </li>
+            </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+{% endblock %}
