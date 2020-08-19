@@ -17,8 +17,8 @@
 {% endblock %}
 
 {% block subNavigation %}
- {% set currentPage = 'documents' %}
- {% include "release/case/_navigation.html" %}
+  {% set currentPage = 'documents' %}
+  {% include "release/case/_navigation.html" %}
 {% endblock %}
 
 {% set mainClasses = 'govuk-!-padding-top-2' %}
@@ -27,7 +27,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-        {{ mojPageHeaderActions({
+      {{ mojPageHeaderActions({
           heading: {
             html: '<h1 class="govuk-heading-xl">Check documentation</h1>'
           },
@@ -36,143 +36,226 @@
             classes: 'govuk-button--secondary'
           }]
         }) }}
-        <p class="govuk-body">Select the documents that are not correct</p>
+      <p class="govuk-body">Select the documents that are not correct</p>
 
-        {% set inputHtml %}
-          {{ govukInput({
-            id: "contact-by-email",
-            name: "contact-by-email",
-            type: "email",
-            spellcheck: false,
-            classes: "govuk-!-width-one-third",
-            label: {
-              text: "Email address"
-            }
-          }) }}
-        {% endset -%}
+      <table class="govuk-table">
 
-        {% set checkboxHtml %}
-          <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
-            <input type="checkbox" class="govuk-checkboxes__input" id="issue" value="yes">
-            <label class="govuk-label govuk-checkboxes__label" for="issue">
-              <span class="govuk-visually-hidden">Select</span>
-            </label>
-          </div>
-        {% endset %}
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
 
+            <th scope="col" class="govuk-table__header"></th>
 
-      {{ govukTable({
-          firstCellIsHeader: false,
-          head: [
-            {
-              text: ""
-            },
-            {
-              text: "Title"
-            },
-            {
-              text: "Format"
-            },
-            {
-              text: "Check against errors"
-            },
-            {
-              text: "Authored by"
-            }
-          ],
-          rows: [
-            [
-              {
-                html: checkboxHtml
-              },
-              {
-                html: "<a href='/public/files/PAROM 1 edited.pdf'>PAROM1</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "No"
-              },
-              {
-                html: "Douglas Heen"
-              }
-            ],
-            [
-              {
-                html: checkboxHtml
-              },
-              {
-                html: "<a href='/public/files/OASys Assessment.pdf'>OASys</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "Yes"
-              },
-              {
-                html: "Tom Mariott"
-              }
-            ],
-            [
-              {
-                html: checkboxHtml
-              },
-              {
-                html: "<a href='/public/files/SPR L.pdf'>SPR-L</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "Yes"
-              },
-              {
-                html: "Sheila Rock"
-              }
-            ],
-            [
-              {
-                html: checkboxHtml
-              },
-              {
-                html: "<a href='/public/files/PSR.pdf'>Pre-sentence report</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "Yes"
-              },
-              {
-                html: "Mark Will"
-              }
-            ],[
-              {
-                html: checkboxHtml
-              },
-              {
-                html: "<a href='/public/files/Sentencing remarks.pdf'>Sentencing Judge's remarks</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "Yes"
-              },
-              {
-                html: "Alex Rock"
-              }
-            ]
-          ]
-        }) }}
+            <th scope="col" class="govuk-table__header">Title</th>
 
-        <form action="/release/case/rerequest-documents">
-            {{ govukButton({
+            <th scope="col" class="govuk-table__header">Format</th>
+
+            <th scope="col" class="govuk-table__header">Check against errors</th>
+
+            <th scope="col" class="govuk-table__header">Authored by</th>
+
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                <input type="checkbox" class="govuk-checkboxes__input issue-with-document" id="issue" value="yes">
+                <label class="govuk-label govuk-checkboxes__label" for="issue">
+                  <span class="govuk-visually-hidden">Select</span>
+                </label>
+              </div>
+            </td>
+
+            <td class="govuk-table__cell">
+              <a href="/public/files/PAROM 1 edited.pdf">PAROM1</a>
+            </td>
+
+            <td class="govuk-table__cell">PDF</td>
+
+            <td class="govuk-table__cell">No</td>
+
+            <td class="govuk-table__cell">Douglas Heen</td>
+
+          </tr>
+
+          <tr class="govuk-table__row govuk-table__row--hidden">
+            <td class="govuk-table__cell" colspan="5">
+              <div class="govuk-checkboxes__conditional">
+              {{ govukInput({
+                label: {
+                  text: "Give a reason"
+                },
+                classes: "govuk-input--width-20",
+                id: "reason",
+                name: "reason"
+              }) }}
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                <input type="checkbox" class="govuk-checkboxes__input issue-with-document" id="issue" value="yes">
+                <label class="govuk-label govuk-checkboxes__label" for="issue">
+                  <span class="govuk-visually-hidden">Select</span>
+                </label>
+              </div>
+            </td>
+
+            <td class="govuk-table__cell">
+              <a href="/public/files/OASys Assessment.pdf">OASys</a>
+            </td>
+
+            <td class="govuk-table__cell">PDF</td>
+
+            <td class="govuk-table__cell">Yes</td>
+
+            <td class="govuk-table__cell">Tom Mariott</td>
+
+          </tr>
+
+          <tr class="govuk-table__row govuk-table__row--hidden">
+            <td class="govuk-table__cell" colspan="5">
+              <div class="govuk-checkboxes__conditional">
+              {{ govukInput({
+                label: {
+                  text: "Give a reason"
+                },
+                classes: "govuk-input--width-20",
+                id: "reason",
+                name: "reason"
+              }) }}
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                <input type="checkbox" class="govuk-checkboxes__input issue-with-document" id="issue" value="yes">
+                <label class="govuk-label govuk-checkboxes__label" for="issue">
+                  <span class="govuk-visually-hidden">Select</span>
+                </label>
+              </div>
+            </td>
+
+            <td class="govuk-table__cell">
+              <a href="/public/files/SPR L.pdf">SPR-L</a>
+            </td>
+
+            <td class="govuk-table__cell">PDF</td>
+
+            <td class="govuk-table__cell">Yes</td>
+
+            <td class="govuk-table__cell">Sheila Rock</td>
+
+          </tr>
+
+          <tr class="govuk-table__row govuk-table__row--hidden">
+            <td class="govuk-table__cell" colspan="5">
+              <div class="govuk-checkboxes__conditional">
+              {{ govukInput({
+                label: {
+                  text: "Give a reason"
+                },
+                classes: "govuk-input--width-20",
+                id: "reason",
+                name: "reason"
+              }) }}
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                <input type="checkbox" class="govuk-checkboxes__input issue-with-document" id="issue" value="yes">
+                <label class="govuk-label govuk-checkboxes__label" for="issue">
+                  <span class="govuk-visually-hidden">Select</span>
+                </label>
+              </div>
+            </td>
+
+            <td class="govuk-table__cell">
+              <a href="/public/files/PSR.pdf">Pre-sentence report</a>
+            </td>
+
+            <td class="govuk-table__cell">PDF</td>
+
+            <td class="govuk-table__cell">Yes</td>
+
+            <td class="govuk-table__cell">Mark Will</td>
+
+          </tr>
+
+          <tr class="govuk-table__row govuk-table__row--hidden">
+            <td class="govuk-table__cell" colspan="5">
+              <div class="govuk-checkboxes__conditional">
+              {{ govukInput({
+                label: {
+                  text: "Give a reason"
+                },
+                classes: "govuk-input--width-20",
+                id: "reason",
+                name: "reason"
+              }) }}
+              </div>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                <input type="checkbox" class="govuk-checkboxes__input issue-with-document" id="issue" value="yes">
+                <label class="govuk-label govuk-checkboxes__label" for="issue">
+                  <span class="govuk-visually-hidden">Select</span>
+                </label>
+              </div>
+            </td>
+
+            <td class="govuk-table__cell">
+              <a href="/public/files/Sentencing remarks.pdf">Sentencing Judge's remarks</a>
+            </td>
+
+            <td class="govuk-table__cell">PDF</td>
+
+            <td class="govuk-table__cell">Yes</td>
+
+            <td class="govuk-table__cell">Alex Rock</td>
+
+          </tr>
+
+          <tr class="govuk-table__row govuk-table__row--hidden">
+            <td class="govuk-table__cell" colspan="5">
+              <div class="govuk-checkboxes__conditional">
+              {{ govukInput({
+                label: {
+                  text: "Give a reason"
+                },
+                classes: "govuk-input--width-20",
+                id: "reason",
+                name: "reason"
+              }) }}
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <form action="/release/case/rerequest-documents">
+        {{ govukButton({
                 text: "Save and continue"
             }) }}
-        </form>
+      </form>
     </div>
   </div>
 
