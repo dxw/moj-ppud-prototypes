@@ -1,0 +1,70 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{%- from "govuk/components/summary-list/macro.njk" import govukSummaryList -%}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+
+{% block pageTitle %}
+  Matt Johnson - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+  {% include "release/case/_identity_bar.html" %}
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'documents' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ mojBanner({
+          type: 'success',
+          html: '<strong>The documents have been requested</strong><br>You’ll be notified when the new documents are ready',
+          iconFallbackText: 'Success'
+        }) }} 
+
+        <form action="/release/todo">
+            {{ govukRadios({
+                classes: "govuk-radios ",
+                idPrefix: "how-to-progress",
+                name: "how-to-progress",
+                fieldset: {
+                    legend: {
+                      text: "Decide how to progress the case",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                      value: "on hold",
+                      text: "Put the case on hold until new documents are available"
+                    },
+                    {
+                      value: "referred",
+                      text: "Refer to the Parole Board"
+                    },
+                    {
+                      value: "refused",
+                      text: "Refuse the referral"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

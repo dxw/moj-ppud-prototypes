@@ -1,0 +1,208 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{%- from "govuk/components/summary-list/macro.njk" import govukSummaryList -%}
+
+{% block pageTitle %}
+  Matt Johnson - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+  {% include "release/case/_identity_bar.html" %}
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'documents' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Check documentation</h1>
+        <p class="govuk-body">Check and confirm if the following documents are correct.
+When possible, they’ve been automatically checked to ensure that:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>it is the right format</li>
+            <li>the offender’s name matches the sentence</li>
+            <li>it’s been authored</li>
+            <li>it’s been produced within the last 6 months</li>
+        </ul>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Full name"
+              },
+              value: {
+                text: "Matt Johnson"
+              }
+            },
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                text: "20 September 1976 (44 years)"
+              }
+            },
+            {
+              key: {
+                text: "Prison number"
+              },
+              value: {
+                text: "A721445"
+              }
+            },
+            {
+              key: {
+                text: "Type of sentence"
+              },
+              value: {
+                text: "Indeterminate"
+              }
+            }
+          ]
+        }) }}
+
+      {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Title"
+            },
+            {
+              text: "Format"
+            },
+            {
+              text: "Check against errors"
+            },
+            {
+              text: "Authored by"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#document'>PAROM1</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "No"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>OASys</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Offender Manager's report</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Pre-sentence report</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],[
+              {
+                html: "<a href='#document'>Sentencing Judge's remarks</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],[
+              {
+                html: "<a href='#document'>SARN</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ]
+          ]
+        }) }}
+
+        <form action="/release/case/check-documentation-issues">
+            {{ govukRadios({
+                classes: "govuk-radios--inline ",
+                idPrefix: "any-issues",
+                name: "any-issues",
+                fieldset: {
+                    legend: {
+                    text: "Are there any issues with any of the documents?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m govuk-!-padding-top-5"
+                    }
+                },
+                items: [
+                    {
+                    value: "yes",
+                    text: "Yes"
+                    },
+                    {
+                    value: "no",
+                    text: "No"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

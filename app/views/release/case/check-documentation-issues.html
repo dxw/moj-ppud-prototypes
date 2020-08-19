@@ -1,0 +1,195 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{%- from "govuk/components/summary-list/macro.njk" import govukSummaryList -%}
+{%- from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions -%}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+  Matt Johnson - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+  {% include "release/case/_identity_bar.html" %}
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'documents' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        {{ mojPageHeaderActions({
+          heading: {
+            html: '<h1 class="govuk-heading-xl">Check documentation</h1>'
+          },
+          items: [{
+            text: 'Request more documents',
+            classes: 'govuk-button--secondary'
+          }]
+        }) }}
+        <p class="govuk-body">Select the documents that are not correct</p>
+
+        {% set inputHtml %}
+          {{ govukInput({
+            id: "contact-by-email",
+            name: "contact-by-email",
+            type: "email",
+            spellcheck: false,
+            classes: "govuk-!-width-one-third",
+            label: {
+              text: "Email address"
+            }
+          }) }}
+        {% endset -%}
+
+        {% set checkboxHtml %}
+          <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+            <input type="checkbox" class="govuk-checkboxes__input" id="issue" value="yes">
+            <label class="govuk-label govuk-checkboxes__label" for="issue">
+              <span class="govuk-visually-hidden">Select</span>
+            </label>
+          </div>
+        {% endset %}
+
+
+      {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: ""
+            },
+            {
+              text: "Title"
+            },
+            {
+              text: "Format"
+            },
+            {
+              text: "Check against errors"
+            },
+            {
+              text: "Authored by"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: checkboxHtml
+              },
+              {
+                html: "<a href='#document'>PAROM1</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "No"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],
+            [
+              {
+                html: checkboxHtml
+              },
+              {
+                html: "<a href='#document'>OASys</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],
+            [
+              {
+                html: checkboxHtml
+              },
+              {
+                html: "<a href='#document'>Offender Manager's report</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],
+            [
+              {
+                html: checkboxHtml
+              },
+              {
+                html: "<a href='#document'>Pre-sentence report</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],[
+              {
+                html: checkboxHtml
+              },
+              {
+                html: "<a href='#document'>Sentencing Judge's remarks</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ],[
+              {
+                html: checkboxHtml
+              },
+              {
+                html: "<a href='#document'>SARN</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "Yes"
+              },
+              {
+                html: "Douglas Heen"
+              }
+            ]
+          ]
+        }) }}
+
+        <form action="/release/case/rerequest-documents">
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

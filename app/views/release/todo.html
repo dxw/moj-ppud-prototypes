@@ -1,5 +1,6 @@
 {% extends "release/layout.html" %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
 {% set currentPage = 'todo' %}
 
 {% block pageTitle %}
@@ -9,6 +10,14 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+        {% if query['how-to-progress'] %}
+          {{ mojBanner({
+            type: 'success',
+            html: '<strong>The case is ' + query['how-to-progress'] + '</strong>',
+            iconFallbackText: 'Success'
+          }) }} 
+        {% endif %}
+      
         <h1 class="govuk-heading-xl">
           To do
         </h1>
