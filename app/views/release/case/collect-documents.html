@@ -62,16 +62,16 @@
                 html: "PAROM 1"
               },
               {
-                text: ""
+                text: "24 August 2020" if data.parom1 else "" 
               },
               {
                 text: "HMPPS - Julie Young, Probation Officer"
               },
               {
-                text: ""
+                text: "Requested" if data.parom1 else ""
               },
               {
-                html: "<a href='/release/case/request-document?document=PAROM+1&name=Julie+Young,+Probation+Officer&email=julie.young@probation.gsi.gov.uk'>request</a>"
+                html: "<a href='#document'>edit request</a>" if data.parom1 else "<a href='/release/case/request-document?document=PAROM+1&name=Julie+Young,+Probation+Officer&email=julie.young@probation.gsi.gov.uk&slug=parom1'>request</a>"
               }
             ],
             [
@@ -79,16 +79,16 @@
                 html: "SPR-L"
               },
               {
-                text: ""
+                text: "24 August 2020" if data.sprl else ""
               },
               {
                 text: "HMP Leeds - Mark Willis, Offender Supervisor"
               },
               {
-                text: ""
+                text: "Requested" if data.sprl else ""
               },
               {
-                html: "<a href='/release/case/request-document?document=SPR+L&name=Mark+Willis,+Offender+Supervisor&email=mark.willis@probation.gsi.gov.uk'>request</a>"
+                html: "<a href='#document'>edit request</a>" if data.sprl else "<a href='/release/case/request-document?document=SPR+L&name=Mark+Willis,+Offender+Supervisor&email=mark.willis@probation.gsi.gov.uk&slug=sprl'>request</a>"
               }
             ],
             [

@@ -53,7 +53,7 @@
       </div>
 
       <form action="/release/case/collect-documents">
-        <input type="hidden" name="send-request" value="1">
+        <input type="hidden" name="{{ query.slug }}" value="requested">
 
         <div class="govuk-!-margin-top-7">
           {{ govukButton({
