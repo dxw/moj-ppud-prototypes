@@ -1,8 +1,16 @@
 {%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{% if referToMCA %}
+  {% set items =  [{text: "Refer to Parole Board",  href: "/release/case/refer-to-parole-board" }] %}
+{% else%}
+  {% set items =  [] %}
+{% endif %}
 {{ 
   mojIdentityBar({
     title: {
       html: "A721445 <b style='margin: 0 15px'>Matt Johnson</b> DOB: <b style='margin-right: 15px'>20 September 1976</b>" + govukTag({text: "High public interest", classes: "govuk-tag--red"})
-    }
+    },
+    menus: [{
+      items: items
+    }]
   }) 
 }} 

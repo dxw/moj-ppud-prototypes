@@ -1,0 +1,294 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions -%}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+{%- from "govuk/components/button/macro.njk" import govukButton -%}
+
+{% block pageTitle %}
+  Matt Johnson - Manage prison release
+{% endblock %}
+
+{% set referToMCA = true %}
+
+{% block identityBar %}
+  {% include "release/case/_identity_bar.html" %}
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'documents' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% set checkboxHtml %}
+<div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+    <input type="checkbox" class="govuk-checkboxes__input" id="issue" value="yes" {% if query.completed %} checked="checked"{% endif%}>
+    <label class="govuk-label govuk-checkboxes__label" for="issue">
+        <span class="govuk-visually-hidden">Select</span>
+    </label>
+</div>
+{% endset %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Collect and track documentation</h1>
+
+      {% if not query.completed %}
+
+      <p class="govuk-body">
+        Request and track/verify all the documentation for the full dossier. When possible, they’ve been automatically checked to ensure that:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>it is the right format</li>
+        <li>the offender’s name matches the sentence</li>
+        <li>it’s been authored</li>
+        <li>it’s been produced within the last 6 months</li>
+      </ul>
+
+      <h2 class="govuk-heading-l">Missing information</h2>
+
+      <a href="/release/case/collect-and-track-documents?completed=1" class="govuk-button govuk-button--secondary">Mark as completed</a>
+
+      {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+                text: ""
+            },
+            {
+              text: "Title"
+            },
+            {
+              text: "Date requested"
+            },
+            {
+              text: "Request to"
+            },
+            {
+              text: "Request status"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {html: checkboxHtml},
+              {
+                html: "<a href='#doc' class='govuk-link'>PAROM 1</a>"
+              },
+              {
+                text: "24 August 2020"
+              },
+              {
+                text: "HMPPS - Julie Young, Probation Officer"
+              },
+              {
+                text: "New documents received"
+              },
+              {
+                html: ""
+              }
+            ],
+            [
+              {html: checkboxHtml},
+              {
+                html: "<a href='#doc' class='govuk-link'>SPR-L</a>"
+              },
+              {
+                text: "24 August 2020"
+              },
+              {
+                text: "HMP Leeds - Mark Willis, Offender Supervisor"
+              },
+              {
+                text: "New documents received"
+              },
+              {
+                html: ""
+              }
+            ],
+            [
+              {html: checkboxHtml},
+              {
+                html: "<a href='#doc' class='govuk-link'>OASys report</a>"
+              },
+              {
+                text: "9 August 2020"
+              },
+              {
+                text: "HMPPS - Fran DoSantos, Probation Officer"
+              },
+              {
+                text: "New documents received"
+              },
+              {
+                html: ""
+              }
+            ]
+          ]
+      }) }}
+
+      {% endif %}
+
+      <h2 class="govuk-heading-l">Completed</h2>
+
+      {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Title"
+            },
+            {
+              text: "Format"
+            },
+            {
+              text: "Date received"
+            },
+            {
+              text: "Sent by"
+            },
+            {
+              text: "Checked for errors"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#document'>Order for Imprisonment Indictment</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Previous convictions</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Police summary of evidence</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Prosecution case summary</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],[
+              {
+                html: "<a href='#document'>Pre-trial medical evaluation</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],[
+              {
+                html: "<a href='#document'>Post-sentence probabtion report</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],
+            [
+              {
+                html: "<a href='/public/files/judge_s_report_mock_up.pdf'>Sentencing remarks</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ]
+          ]
+        }) }}
+
+        {% if query.completed %}
+        <form action="/release/case/refer-to-parole-board">
+
+            <div class="govuk-!-margin-top-7">
+            {{ govukButton({
+                text: "Refer to Parole Board"
+            }) }}
+            </div>
+        </form>
+        {% endif %}
+    </div>
+  </div>
+
+{% endblock %}
