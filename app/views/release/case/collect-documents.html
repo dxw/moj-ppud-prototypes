@@ -1,0 +1,258 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions -%}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+
+{% block pageTitle %}
+  Matt Johnson - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+  {% include "release/case/_identity_bar.html" %}
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'documents' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Collect and track documentation</h1>
+      <p class="govuk-body">
+        Request and track/verify all the documentation for the full dossier. When possible, they’ve been automatically checked to ensure that:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>it is the right format</li>
+        <li>the offender’s name matches the sentence</li>
+        <li>it’s been authored</li>
+        <li>it’s been produced within the last 6 months</li>
+      </ul>
+
+      <h2 class="govuk-heading-l">Missing information</h2>
+
+      {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Title"
+            },
+            {
+              text: "Date requested"
+            },
+            {
+              text: "Request to"
+            },
+            {
+              text: "Request status"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "PAROM 1"
+              },
+              {
+                text: ""
+              },
+              {
+                text: "HMPPS - Julie Young, Probation Officer"
+              },
+              {
+                text: ""
+              },
+              {
+                html: "<a href='#document'>request</a>"
+              }
+            ],
+            [
+              {
+                html: "SPR-L"
+              },
+              {
+                text: ""
+              },
+              {
+                text: "HMP Leeds - Mark Willis, Offender Supervisor"
+              },
+              {
+                text: ""
+              },
+              {
+                html: "<a href='#document'>request</a>"
+              }
+            ],
+            [
+              {
+                html: "OASys report"
+              },
+              {
+                text: "9 August 2020"
+              },
+              {
+                text: "HMPPS - Fran DoSantos, Probation Officer"
+              },
+              {
+                text: "2nd reminder sent on 19 August 2020"
+              },
+              {
+                html: "<a href='#document'>edit request</a>"
+              }
+            ]
+          ]
+      }) }}
+
+      <h2 class="govuk-heading-l">Completed</h2>
+
+      {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Title"
+            },
+            {
+              text: "Format"
+            },
+            {
+              text: "Date received"
+            },
+            {
+              text: "Sent by"
+            },
+            {
+              text: "Checked for errors"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#document'>Order for Imprisonment Indictment</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Previous convictions</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Police summary of evidence</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],
+            [
+              {
+                html: "<a href='#document'>Prosecution case summary</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],[
+              {
+                html: "<a href='#document'>Pre-trial medical evaluation</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],[
+              {
+                html: "<a href='#document'>Post-sentence probabtion report</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ],
+            [
+              {
+                html: "<a href='/public/files/judge_s_report_mock_up.pdf'>Sentencing remarks</a>"
+              },
+              {
+                text: "PDF"
+              },
+              {
+                text: "12 August 2020"
+              },
+              {
+                text: "HMP Brixton"
+              },
+              {
+                text: "Yes"
+              }
+            ]
+          ]
+        }) }}
+    </div>
+  </div>
+
+{% endblock %}
