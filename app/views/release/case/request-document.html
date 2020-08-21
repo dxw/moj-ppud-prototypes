@@ -1,0 +1,67 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "moj/components/page-header-actions/macro.njk" import mojPageHeaderActions -%}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+{%- from "govuk/components/button/macro.njk" import govukButton -%}
+
+
+{% block pageTitle %}
+  Matt Johnson - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+  {% include "release/case/_identity_bar.html" %}
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'documents' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Request '{{ query.document }}'</h1>
+      <p class="govuk-body">
+        Below is the notification you're about to send to:
+      </p>
+      
+      <div class="grey-panel govuk-body govuk-!-padding-5">
+        <div class="pull-right"><a href="#edit" class="govuk-link">Edit</a></div>
+        {{ query.name }}<br>
+        {{ query.email }}
+      </div>
+
+      <div class="email-preview govuk-!-padding-5">
+        <p class="govuk-body">Dear colleague,</p>
+
+        <p class="govuk-body">The following prisoner’s parole review is coming up, and you need to provide PPCS the following document to support this review:</p>
+
+        <p class="govuk-body">
+          <strong>Prisoner name, surname, DOB:</strong> Matt Johnson, 20 September 1976<br>
+          <strong>Prison number:</strong> A721445<br>
+          <strong>Missing document:</strong> {{ query.document }}<br>
+        </p>
+        <p class="govuk-body">You can upload files following this link.</p>
+
+        <p class="govuk-body">Best,<br>
+        Parole Elgible Casework Team, PPCS</p>
+      </div>
+
+      <form action="/release/case/collect-documents">
+        <input type="hidden" name="send-request" value="1">
+
+        <div class="govuk-!-margin-top-7">
+          {{ govukButton({
+            text: "Send request"
+          }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -18,7 +18,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
-.search-panel {
+.search-panel, .grey-panel {
     background: govuk-colour("light-grey");
 }
 
@@ -33,10 +33,14 @@ $govuk-assets-path: '/govuk/assets/';
     color: govuk-colour("mid-grey");
 }
 
-.moj-task-list .govuk-tag--grey {
+.moj-task-list .govuk-tag--grey, .pull-right {
     float: right;
 }
 
 .govuk-table__row--hidden {
     display: none;
+}
+
+.email-preview {
+    border: 1px solid govuk-colour("mid-grey");
 }
