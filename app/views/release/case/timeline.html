@@ -1,0 +1,121 @@
+{% extends "release/layout.html" %}
+{%- from "moj/components/identity-bar/macro.njk" import mojIdentityBar -%}
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+{%- from "moj/components/task-list/macro.njk" import mojTaskList -%}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+{%- from "moj/components/timeline/macro.njk" import mojTimeline -%}
+
+
+{% block pageTitle %}
+  Matt Johnson - Manage prison release
+{% endblock %}
+
+{% block identityBar %}
+  {% include "release/case/_identity_bar.html" %}
+{% endblock %}
+
+{% block subNavigation %}
+ {% set currentPage = 'timeline' %}
+ {% include "release/case/_navigation.html" %}
+{% endblock %}
+
+{% set mainClasses = 'govuk-!-padding-top-2' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+          Overview
+      </h1>
+
+      <div class="moj-timeline">
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Second review</h2>
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-14T14:01:00.000Z">by 20 September 2020</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          <a class="govuk-button govuk-!-margin-bottom-0" href="release/case/collect-documents">Collect and track documents</a>
+        </div>
+
+        </div>
+
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">First review</h2>
+
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-07T12:32:00.000Z">20 September 2019</time>
+        </p>
+
+        <div class="moj-timeline__description">Refused Parole</div>
+
+        </div>
+
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Sentencing date</h2>
+
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-06T09:12:00.000Z">20 Feburary 2001</time>
+        </p>
+
+        <div class="moj-timeline__description">Minimum term 18 years</div>
+
+        </div>
+
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Arrested</h2>
+
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-05-28T10:45:00.000Z">on 20 June 2000</time>
+        </p>
+
+        <div class="moj-timeline__description">Index offence: Murder</div>
+
+        </div>
+
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Offence commited</h2>
+
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-05-28T10:15:00.000Z">10 June 2000</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          
+        </div>
+
+        </div>
+
+    
+        </div> 
+      
+    </div>
+  </div>
+
+{% endblock %}
