@@ -23,7 +23,7 @@
         </h1>
 
         <h2 class="govuk-heading-m">
-          <span class="govuk-!-font-size-48">3</span> new cases
+          <span class="govuk-!-font-size-48">3</span> cases awaiting referral
         </h2>
         {% set viewButton = "<a href='/release/case/milestones'>View</a>" %}
         {{ govukTable({
@@ -39,10 +39,10 @@
               text: "Sentence"
             },
             {
-              text: "Owning"
+              text: "Name"
             },
             {
-              text: "Priority"
+              text: "Date of birth"
             },
             {
               text: ""
@@ -54,16 +54,16 @@
                 text: "A721445"
               },
               {
-                html: govukTag({text: "New", classes: "govuk-tag--blue"})
+                html: govukTag({text: "Waiting", classes: "govuk-tag--blue"})
               },
               {
                 text: "Indeterminate"
               },
               {
-                text: "Initial Action"
+                text: "Matt Johnson"
               },
               {
-                text: "High"
+                text: "20 September 1976"
               },
               {
                 html: viewButton
@@ -74,16 +74,16 @@
                 text: "B721447"
               },
               {
-                html: govukTag({text: "New", classes: "govuk-tag--blue"})
+                html: govukTag({text: "Waiting", classes: "govuk-tag--blue"})
               },
               {
                 text: "Indeterminate"
               },
               {
-                text: "Initial Action"
+                text: "Ted Smith"
               },
               {
-                text: "High"
+                text: "2 May 1981"
               },
               {
                 html: viewButton
@@ -94,16 +94,16 @@
                 text: "F729861"
               },
               {
-                html: govukTag({text: "New", classes: "govuk-tag--blue"})
+                html: govukTag({text: "Waiting", classes: "govuk-tag--blue"})
               },
               {
                 text: "Indeterminate"
               },
               {
-                text: "Initial Action"
+                text: "John Taylor"
               },
               {
-                text: "High"
+                text: "15 June 1988"
               },
               {
                 html: viewButton
@@ -113,7 +113,7 @@
         }) }}
 
         <h2 class="govuk-heading-m govuk-!-margin-top-9">
-          <span class="govuk-!-font-size-48">8</span> cases in progress
+          <span class="govuk-!-font-size-48">8</span> referred to parole board
 
           <span style="float:right" class="govuk-body-s govuk-!-margin-top-5">
             <a href="#all">Show all</a>
@@ -127,7 +127,7 @@
               text: "NOMIS number"
             },
             {
-              text: "Status"
+              text: "Status at Parole Board"
             },
             {
                 text: ""
@@ -136,10 +136,10 @@
               text: "Sentence"
             },
             {
-              text: "Owning"
+              text: "Name"
             },
             {
-              text: "Priority"
+              text: "Date of birth"
             },
             {
               text: ""
@@ -160,10 +160,10 @@
                 text: "Indeterminate"
               },
               {
-                text: "Review caseworker"
+                text: "Mike John"
               },
               {
-                text: "Low"
+                text: "1 March 1973"
               },
               {
                 html: viewButton
@@ -183,10 +183,10 @@
                 text: "Indeterminate"
               },
               {
-                text: "Review caseworker"
+                text: "Marc Ruffalo"
               },
               {
-                text: "Low"
+                text: "29 December 1979"
               },
               {
                 html: viewButton
@@ -197,7 +197,7 @@
                 text: "F729861"
               },
               {
-                html: govukTag({text: "2 days left", classes: "govuk-tag--red"})
+                html: govukTag({text: "On hold", classes: "govuk-tag--red"})
               },
               {
                 text: "Waiting on quality check"
@@ -206,10 +206,10 @@
                 text: "Indeterminate"
               },
               {
-                text: "Review caseworker"
+                text: "Christian Aguila"
               },
               {
-                text: "High"
+                text: "6 April 1990"
               },
               {
                 html: viewButton
