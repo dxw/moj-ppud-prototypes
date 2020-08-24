@@ -41,7 +41,9 @@
         </p>
 
         <div class="moj-timeline__description">
+          {% if not query.referred %}
           <a class="govuk-button govuk-!-margin-bottom-0" href="release/case/collect-documents">Collect and track documents</a>
+          {% endif %}
         </div>
 
         </div>
