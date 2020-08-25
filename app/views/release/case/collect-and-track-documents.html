@@ -138,145 +138,170 @@
 
       <h2 class="govuk-heading-l">Mandatory documents completed</h2>
 
-      {{ govukTable({
-          firstCellIsHeader: false,
-          head: [
-            {
-              text: "Title"
-            },
-            {
-              text: "Format"
-            },
-            {
-              text: "Date received"
-            },
-            {
-              text: "Sent by"
-            },
-            {
-              text: "Checked for errors"
-            }
-          ],
-          rows: [
-            [
-              {
-                html: "<a href='#document'>Order for Imprisonment Indictment</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "12 August 2020"
-              },
-              {
-                text: "HMP Brixton"
-              },
-              {
-                text: "Yes"
-              }
-            ],
-            [
-              {
-                html: "<a href='#document'>Previous convictions</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "12 August 2020"
-              },
-              {
-                text: "HMP Brixton"
-              },
-              {
-                text: "Yes"
-              }
-            ],
-            [
-              {
-                html: "<a href='#document'>Police summary of evidence</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "12 August 2020"
-              },
-              {
-                text: "HMP Brixton"
-              },
-              {
-                text: "Yes"
-              }
-            ],
-            [
-              {
-                html: "<a href='#document'>Prosecution case summary</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "12 August 2020"
-              },
-              {
-                text: "HMP Brixton"
-              },
-              {
-                text: "Yes"
-              }
-            ],[
-              {
-                html: "<a href='#document'>Pre-trial medical evaluation</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "12 August 2020"
-              },
-              {
-                text: "HMP Brixton"
-              },
-              {
-                text: "Yes"
-              }
-            ],[
-              {
-                html: "<a href='#document'>Post-sentence probabtion report</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "12 August 2020"
-              },
-              {
-                text: "HMP Brixton"
-              },
-              {
-                text: "Yes"
-              }
-            ],
-            [
-              {
-                html: "<a href='/public/files/judge_s_report_mock_up.pdf'>Sentencing remarks</a>"
-              },
-              {
-                text: "PDF"
-              },
-              {
-                text: "12 August 2020"
-              },
-              {
-                text: "HMP Brixton"
-              },
-              {
-                text: "Yes"
-              }
-            ]
-          ]
-        }) }}
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+          
+            <th scope="col" class="govuk-table__header">Title</th>
+          
+            <th scope="col" class="govuk-table__header">Format</th>
+          
+            <th scope="col" class="govuk-table__header">Date received</th>
+          
+            <th scope="col" class="govuk-table__header">Sent by</th>
+          
+            <th scope="col" class="govuk-table__header">Checked for errors</th>
+          
+          </tr>
+        </thead>
+        
+        <tbody class="govuk-table__body">
+
+              {% if query.completed %}
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell"><a href="#document">PAROM 1</a></td>
+                    
+                    <td class="govuk-table__cell">PDF</td>
+                    
+                    <td class="govuk-table__cell">24 August 2020</td>
+                    
+                    <td class="govuk-table__cell">HMP Brixton</td>
+                    
+                    <td class="govuk-table__cell">Yes</td>
+                  
+                  </tr>
+                
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell"><a href="#document">SPR-L</a></td>
+                    
+                  <td class="govuk-table__cell">PDF</td>
+                    
+                  <td class="govuk-table__cell">24 August 2020</td>
+                    
+                  <td class="govuk-table__cell">HMP Brixton</td>
+                    
+                  <td class="govuk-table__cell">Yes</td>
+                    
+                  
+                  </tr>
+                
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell"><a href="#document">OASys report</a></td>
+                    
+                  <td class="govuk-table__cell">PDF</td>
+                    
+                  <td class="govuk-table__cell">24 August 2020</td>
+                    
+                  <td class="govuk-table__cell">HMP Brixton</td>
+                    
+                  <td class="govuk-table__cell">Yes</td>
+                    
+                  
+                  </tr>
+
+              {% endif %}
+          
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="#document">Order for Imprisonment Indictment</a></td>
+                
+                <td class="govuk-table__cell">PDF</td>
+                
+                <td class="govuk-table__cell">12 August 2020</td>
+                
+                <td class="govuk-table__cell">HMP Brixton</td>
+                
+                <td class="govuk-table__cell">Yes</td>
+              
+              </tr>
+            
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#document">Previous convictions</a></td>
+                
+              <td class="govuk-table__cell">PDF</td>
+                
+              <td class="govuk-table__cell">12 August 2020</td>
+                
+              <td class="govuk-table__cell">HMP Brixton</td>
+                
+              <td class="govuk-table__cell">Yes</td>
+                
+              
+              </tr>
+            
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#document">Police summary of evidence</a></td>
+                
+              <td class="govuk-table__cell">PDF</td>
+                
+              <td class="govuk-table__cell">12 August 2020</td>
+                
+              <td class="govuk-table__cell">HMP Brixton</td>
+                
+              <td class="govuk-table__cell">Yes</td>
+                
+              
+              </tr>
+            
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#document">Prosecution case summary</a></td>
+                
+              <td class="govuk-table__cell">PDF</td>
+                
+              <td class="govuk-table__cell">12 August 2020</td>
+                
+              <td class="govuk-table__cell">HMP Brixton</td>
+                
+              <td class="govuk-table__cell">Yes</td>
+                
+              
+              </tr>
+            
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#document">Pre-trial medical evaluation</a></td>
+                
+              <td class="govuk-table__cell">PDF</td>
+                
+              <td class="govuk-table__cell">12 August 2020</td>
+                
+              <td class="govuk-table__cell">HMP Brixton</td>
+                
+              <td class="govuk-table__cell">Yes</td>
+                
+              
+              </tr>
+            
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#document">Post-sentence probabtion report</a></td>
+                
+              <td class="govuk-table__cell">PDF</td>
+                
+              <td class="govuk-table__cell">12 August 2020</td>
+                
+              <td class="govuk-table__cell">HMP Brixton</td>
+                
+              <td class="govuk-table__cell">Yes</td>
+                
+              
+              </tr>
+            
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/public/files/judge_s_report_mock_up.pdf">Sentencing remarks</a></td>
+                
+              <td class="govuk-table__cell">PDF</td>
+                
+              <td class="govuk-table__cell">12 August 2020</td>
+                
+              <td class="govuk-table__cell">HMP Brixton</td>
+                
+              <td class="govuk-table__cell">Yes</td>
+                
+              
+              </tr>
+            
+          
+        </tbody>
+      </table>
 
         {% if query.completed %}
         <form action="/release/case/refer-to-parole-board">
