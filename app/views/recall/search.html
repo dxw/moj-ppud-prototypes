@@ -1,0 +1,178 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{%- from "moj/components/search/macro.njk" import mojSearch -%}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">
+          Find someone
+        </h1>
+
+        <form action="" method="get" class="govuk-!-padding-5 govuk-!-margin-bottom-9 search-panel">
+          <div class="moj-search">
+            <div class="govuk-form-group">
+              <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
+                Enter prison, file reference number or offender’s name
+              </label>
+              <span id="search-hint" class="govuk-hint moj-search__hint ">
+                Enter full or partial number
+              </span>
+              <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
+            </div>
+            <button type="submit" class="govuk-button moj-search__button " data-module="govuk-button">
+              Search
+            </button>
+          </div>
+          <input type="hidden" name="results" value="1">
+          <a href="#" class="govuk-link button-link govuk-body-m">
+            Show extra search criteria
+          </a>
+        </form>
+
+        {% if query.results %}
+        <h2 class="govuk-heading-m">
+          3 people found
+        </h1>
+        {% set radioButton %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="person" name="person" type="radio" value="1">
+            <label class="govuk-label govuk-radios__label" for="person">
+            </label>
+          </div>
+        {% endset %}
+        <form action="/recall/sentence-breached">
+        {{ govukTable({
+          classes: "govuk-radios govuk-radios--small",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: ""
+            },
+            {
+              text: "PNC number"
+            },
+            {
+              text: "Family name"
+            },
+            {
+              text: "First name"
+            },
+            {
+              text: "Date of birth"
+            },
+            {
+              text: "Released from"
+            },
+            {
+              text: "Released to"
+            },
+            {
+              text: "Gender"
+            },
+            {
+              text: "Ethnicity"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: radioButton
+              },
+              {
+                text: "75/721445A"
+              },
+              {
+                text: "Kim"
+              },
+              {
+                text: "Kate"
+              },
+              {
+                text: "23 Feb 1970"
+              },
+              {
+                text: "HMP Leeds"
+              },
+              {
+                text: "20 Feb 2020"
+              },
+              {
+                text: "Male"
+              },
+              {
+                text: "Asian"
+              }
+            ],
+            [
+              {
+                html: radioButton
+              },
+              {
+                text: "75/721447B"
+              },
+              {
+                text: "Smith"
+              },
+              {
+                text: "Vijay"
+              },
+              {
+                text: "14 Dec 1981"
+              },
+              {
+                text: "HMP Bristol"
+              },
+              {
+                text: "2 August 2020"
+              },
+              {
+                text: "Female"
+              },
+              {
+                text: "White"
+              }
+            ],
+            [
+              {
+                html: radioButton
+              },
+              {
+                text: "75/729861F"
+              },
+              {
+                text: "Thomas"
+              },
+              {
+                text: "Chris"
+              },
+              {
+                text: "01 Mar 1965"
+              },
+              {
+                text: "HMP Birmingham"
+              },
+              {
+                text: "25 July 2020"
+              },
+              {
+                text: "Male"
+              },
+              {
+                text: "Black"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+        </form>
+
+        {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

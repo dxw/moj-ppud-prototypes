@@ -1,0 +1,111 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/recall/location">
+
+        {{ govukCheckboxes({
+            idPrefix: "vulnerable-situations",
+            name: "vulnerable-situations",
+            fieldset: {
+                legend: {
+                text: "Is the offender in a situation that makes them vulnerable?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "Select any that apply to this offender."
+            },
+            items: [
+                {
+                    value: "Substance misuse",
+                    text: "Substance misuse"
+                },
+                {
+                    value: "Suicide or self-harm risk",
+                    text: "Suicide or self-harm risk"
+                },
+                {
+                    value: "Domestic abuse",
+                    text: "Domestic abuse"
+                },
+                {
+                    value: "Learning difficulties",
+                    text: "Learning difficulties"
+                },
+                {
+                    value: "Mental health concern",
+                    text: "Mental health concern"
+                },
+                {
+                    value: "Adult/children safeguarding",
+                    text: "Adult/children safeguarding"
+                },
+                {
+                    value: "Bereavement",
+                    text: "Bereavement"
+                },
+                {
+                    value: "Relationship breakdown",
+                    text: "Relationship breakdown"
+                },
+                {
+                    value: "Other",
+                    text: "Other",
+                    conditional: {
+                        html: govukInput({
+                            id: "other-situation",
+                            name: "other-situation",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukCheckboxes({
+            idPrefix: "other-issues",
+            name: "other-issues",
+            fieldset: {
+                legend: {
+                    text: "Any other issues the police should be aware of?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                }
+            },
+            items: [
+                {
+                    value: "Intention to go back to prison",
+                    text: "Intention to go back to prison"
+                },
+                {
+                    value: "Other",
+                    text: "Other",
+                    conditional: {
+                        html: govukInput({
+                            id: "other-issue",
+                            name: "other-issue",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -44,3 +44,12 @@ $govuk-assets-path: '/govuk/assets/';
 .email-preview {
     border: 1px solid govuk-colour("mid-grey");
 }
+
+.govuk-table__cell .govuk-radios__label {
+    &::before {
+        top: 0;
+    }
+    &::after {
+        top: 7px;
+    }
+}

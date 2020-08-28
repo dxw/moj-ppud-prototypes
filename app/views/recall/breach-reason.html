@@ -1,0 +1,98 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/recall/vulnerable-situations">
+
+        {{ govukCheckboxes({
+            idPrefix: "breach-reason",
+            name: "breach-reason",
+            fieldset: {
+                legend: {
+                text: "What's the breach of licence?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "These are the licence conditions agreed on last release. Select any that have been breached."
+            },
+            items: [
+                {
+                    value: "Not to travel abroad",
+                    text: "Not to travel abroad"
+                },
+                {
+                    value: "Not to commit any other offences",
+                    text: "Not to commit any other offences"
+                },
+                {
+                    value: "Not to live at an unapproved premises without COM's permission",
+                    text: "Not to live at an unapproved premises without COM's permission"
+                },
+                {
+                    value: "Be of good behaviour",
+                    text: "Be of good behaviour"
+                },
+                {
+                    value: "Be in touch with the supervising officer",
+                    text: "Be in touch with the supervising officer"
+                },
+                {
+                    value: "Receive visits from the supervising officer",
+                    text: "Receive visits from the supervising officer"
+                },
+                {
+                    value: "Other",
+                    text: "Other",
+                    conditional: {
+                        html: govukInput({
+                            id: "other-reason",
+                            name: "other-reason",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "violent-nature",
+            name: "violent-nature",
+            fieldset: {
+                legend: {
+                text: "Is the breach of a violent or sexual nature?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+                }
+            },
+            hint: {
+                text: "This might help PPCS decide whether the breach requires a standard recall"
+            },
+            items: [
+                {
+                    value: "yes",
+                    text: "Yes"
+                },
+                {
+                    value: "no",
+                    text: "No"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

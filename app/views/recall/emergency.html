@@ -1,0 +1,42 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/recall/search">
+        {{ govukRadios({
+        idPrefix: "is-emergency",
+        name: "is-emergency",
+        classes: "govuk-radios--inline",
+        fieldset: {
+            legend: {
+                text: "Is it an emergency?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+           {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                    html: "<p>You need to call PPCS</p>"
+                }
+            },
+            {
+                value: "no",
+                text: "No"
+            }
+        ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
