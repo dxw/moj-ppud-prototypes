@@ -1,0 +1,21 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/recall/confirmation">
+        <h1 class="govuk-heading-l">Co-sign a recall request</h1>
+        <p class="govuk-body">{{ data['caseworker_name'] | d('Vinnith Johnson') }} has raised the following recall request.</p>
+        <p class="govuk-body">You need to review this request and counter-sign it if appropriate.</p>
+        <p class="govuk-body">You can raise issues or points of clarifications if you need.</p>
+        {{ govukButton({
+            text: "Counter-sign"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
