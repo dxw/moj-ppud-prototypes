@@ -38,6 +38,10 @@ module.exports = function (env) {
 
   ------------------------------------------------------------------ */
 
+  filters.array2br = function(array) {
+    return array && array.length ? array.join('<br>') : ''
+  }
+
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */

@@ -9,6 +9,252 @@
         <form action="/recall/confirmation">
         <h1 class="govuk-heading-l">Check your answers</h1>
 
+        {{ govukSummaryList({
+            classes: 'govuk-!-margin-bottom-9',
+            rows: [
+                {
+                    key: {
+                        text: "Is it an emergency?"
+                    },
+                    value: {
+                        text: data['is-emergency'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/emergency",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Offender"
+                    },
+                    value: {
+                        html: "75/721445A<br>Kate Kim<br>DOB: 23 Feb 1970"
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "What is the breach of licence for?"
+                    },
+                    value: {
+                        text: data['sentence-breached'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "How has the licence been breached?"
+                    },
+                    value: {
+                        html: data['breach-reason'] | array2br
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Is the offender in a situation that makes them vulnerable?"
+                    },
+                    value: {
+                        html: data['vulnerable-situations'] | array2br
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Any other issues the police should be aware of?"
+                    },
+                    value: {
+                        html: data['other-issues'] | array2br
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Where is the offender now?"
+                    },
+                    value: {
+                        text: data['offender-location']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Have you talked to the VLO?"
+                    },
+                    value: {
+                        text: data['vlo-contacted']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "OASys additions"
+                    },
+                    value: {
+                        text: data['add-oasys']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Index offence additions"
+                    },
+                    value: {
+                        text: data['add-index-offence']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "How do you think they've been responding to supervision?"
+                    },
+                    value: {
+                        text: data['supervision-response']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "What other measures have you tried before the recall request?"
+                    },
+                    value: {
+                        text: data['other-measures']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "What's your recommendation?"
+                    },
+                    value: {
+                        text: data['recommendation'] | capitalize + " recall"
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Who should countersign this?"
+                    },
+                    value: {
+                        html: data['countersign-name'] + '<br>' + data['countersign-email']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Previous convictions"
+                    },
+                    value: {
+                        html: "Attached"
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }) }}
+
         {{ govukButton({
             text: "Confirm and submit"
         }) }}
