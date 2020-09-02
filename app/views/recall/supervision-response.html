@@ -19,14 +19,24 @@
             },
             items: [
                 {
-                    value: "Measure 1",
-                    text: "Measure 1"
+                    value: "Satisfactory",
+                    text: "Satisfactory"
                 },
                 {
-                    value: "Measure 2",
-                    text: "Measure 2"
+                    value: "Unsatisfactory",
+                    text: "Unsatisfactory"
                 }
             ]
+        }) }}
+
+        {{ govukTextarea({
+            name: "add-index-offence",
+            id: "add-index-offence",
+            label: {
+                text: "Add",
+                classes: "govuk-label--m",
+                isPageHeading: false
+            }
         }) }}
 
         {{ govukButton({

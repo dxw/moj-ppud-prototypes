@@ -8,11 +8,11 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         {{ govukPanel({
-            titleText: "Notification complete",
-            html: "Email has been sent"
+            titleText: "Recall request sent to countersigning",
+            html: ""
         }) }}
-        <p class="govuk-body">Your request has been sent to {{ data['countersign-name'] | d('Jo Holland') }} for counter-signing.</p>
-        <p class="govuk-body">We will let you know once that’s done, and it will be sent to PPCS Recall Team</p>
+        <p class="govuk-body">Your request has been sent to {{ data['countersign-name'] | d('Jo Holland') }} for countersigning.</p>
+        <p class="govuk-body">We will email you know once that’s done, and the request will then automatically be sent to the PPCS Recall Team</p>
     </div>
 </div>
 
