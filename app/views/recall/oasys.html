@@ -3,13 +3,67 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">OASys</h1>
-        <p class="govuk-body">This is what's on the most recent OASys assessment</p>
+        <p class="govuk-body">The most recent OASys assessment for the person in question shows their risk profile as:</p>
         <form action="/recall/index-offence">
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                key: {
+                    text: "Public"
+                },
+                value: {
+                    text: "High"
+                }
+                },
+                {
+                key: {
+                    text: "Self"
+                },
+                value: {
+                    text: "Medium"
+                }
+                },
+                {
+                key: {
+                    text: "Known Adult"
+                },
+                value: {
+                    html: "Medium"
+                }
+                },
+                {
+                key: {
+                    text: "Children"
+                },
+                value: {
+                    html: 'Medium'
+                }
+                },
+                {
+                key: {
+                    text: "Staff"
+                },
+                value: {
+                    html: 'Medium'
+                }
+                },
+                {
+                key: {
+                    text: "Prisoners"
+                },
+                value: {
+                    html: 'Medium'
+                }
+                }
+            ]
+        }) }}
 
         {{ govukTextarea({
             name: "add-oasys",

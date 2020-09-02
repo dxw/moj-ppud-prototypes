@@ -3,6 +3,7 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block content %}
 <div class="govuk-grid-row">
@@ -10,6 +11,51 @@
         <h1 class="govuk-heading-l">Index offence details</h1>
         <p class="govuk-body">An explanation of what the index offence was</p>
         <form action="/recall/supervision-response">
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                key: {
+                    text: "Full name"
+                },
+                value: {
+                    text: "Kate J Kim"
+                }
+                },
+                {
+                key: {
+                    text: "Index offence"
+                },
+                value: {
+                    text: "Murder"
+                }
+                },
+                {
+                key: {
+                    text: "Date"
+                },
+                value: {
+                    html: "20 September 1976"
+                }
+                },
+                {
+                key: {
+                    text: "Establishment"
+                },
+                value: {
+                    html: 'HMP Leeds'
+                }
+                },
+                {
+                key: {
+                    text: "Offender manager"
+                },
+                value: {
+                    html: 'Tim Cit'
+                }
+                }
+            ]
+        }) }}
 
         {{ govukTextarea({
             name: "add-index-offence",
