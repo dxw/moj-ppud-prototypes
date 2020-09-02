@@ -8,6 +8,10 @@
 
 {% block content %}
 <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "previous-convictions" %}
+        {% include "recall/_side-navigation.html" %}
+    </div>
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Previous convictions</h1>
         <p class="govuk-body">Attach the PNC file</p>
