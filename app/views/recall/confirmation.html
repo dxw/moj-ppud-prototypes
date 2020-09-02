@@ -11,7 +11,7 @@
             titleText: "Recall request sent to countersigning",
             html: ""
         }) }}
-        <p class="govuk-body">Your request has been sent to {{ data['countersign-name'] | d('Jo Holland') }} for countersigning.</p>
+        <p class="govuk-body">Recipient: {{ data['countersign-name'] | d('Jo Holland') }}</p>
         <p class="govuk-body">We will email you know once that’s done, and the request will then automatically be sent to the PPCS Recall Team</p>
     </div>
 </div>
