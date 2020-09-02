@@ -6,12 +6,12 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form action="/recall/confirmation">
-        <h1 class="govuk-heading-l">Co-sign a recall request</h1>
+        <form action="/recall/confirmation-after-cosign">
+        <h1 class="govuk-heading-l">Countersign a recall request</h1>
         <p class="govuk-body">{{ data['caseworker_name'] | d('Vinnith Johnson') }} has raised the following recall request.</p>
-        <p class="govuk-body">You need to review this request and counter-sign it if appropriate.</p>
+        <p class="govuk-body">You need to review this request and countersign it if appropriate.</p>
         <p class="govuk-body">You can raise issues or points of clarifications if you need.</p>
-        
+
         {{ govukSummaryList({
             classes: 'govuk-!-margin-bottom-9',
             rows: [
@@ -36,7 +36,7 @@
                         text: "Offender"
                     },
                     value: {
-                        html: "75/721445A<br>Kim Kate<br>DOB: 23 Feb 1970"
+                        html: "75/721445A<br>Jack Johnson<br>DOB: 23 Feb 1970"
                     },
                     actions: {
                         items: [
@@ -259,7 +259,7 @@
         }) }}
 
         {{ govukButton({
-            text: "Counter-sign"
+            text: "Countersign"
         }) }}
         </form>
     </div>
