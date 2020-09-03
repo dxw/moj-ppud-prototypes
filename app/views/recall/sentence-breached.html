@@ -9,25 +9,54 @@
         {% include "recall/_side-navigation.html" %}
     </div>
     <div class="govuk-grid-column-two-thirds">
-        <form action="/recall/breach-reason">
+        <form action="/recall/emergency">
         {{ govukRadios({
         idPrefix: "sentence-breached",
         name: "sentence-breached",
         fieldset: {
             legend: {
-                text: "What is the breach of licence for?",
+                text: "Which active sentence are you initiating a recall on?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }
         },
-        hint: {
-            text: "Active sentences currently served in the community for this offender are"
-        },
         items: [
            {
                 value: "murder",
-                text: "Murder - life sentence"
+                text: "Life sentence (murder)",
+                conditional: {
+                  html: "<p>This will automatically trigger a standard recall</p>"
+                }
+            },
+            {
+                 value: "burglary",
+                 text: "Determinate sentence (burglary)"
+             }
+        ]
+        }) }}
+
+        {{ govukRadios({
+        idPrefix: "danger-to-public",
+        name: "danger-to-public",
+        fieldset: {
+            legend: {
+                text: "Is the offender presenting a great danger to the public?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
             }
+        },
+        items: [
+           {
+                value: "Yes",
+                text: "Yes",
+                conditional: {
+                  html: "<p>This will automatically trigger an emergency recall</p>"
+                }
+            },
+            {
+                 value: "No",
+                 text: "No"
+             }
         ]
         }) }}
 

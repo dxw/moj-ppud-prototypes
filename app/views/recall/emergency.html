@@ -9,32 +9,29 @@
         {% include "recall/_side-navigation.html" %}
     </div>
     <div class="govuk-grid-column-two-thirds">
-        <form action="/recall/search">
+        <form action="/recall/breach-reason">
         {{ govukRadios({
         idPrefix: "is-emergency",
         name: "is-emergency",
         classes: "govuk-radios--inline",
         fieldset: {
             legend: {
-                text: "Is it an emergency?",
+                text: "Have you called PPCS about the emergency recall?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }
         },
-        hint: {
-              text: "Emergency recalls apply only to IPP, indetetminate and life sentences, or someone who poses a great risk to the public that their immediate detention is required."
-        },
         items: [
            {
                 value: "yes",
-                text: "Yes",
-                conditional: {
-                    html: "<p>You need to call PPCS on 020 987 16567 to notify them of the urgency of the situation first</p>"
-                }
+                text: "Yes"
             },
             {
                 value: "no",
-                text: "No"
+                text: "No",
+                conditional: {
+                    html: "<p>You need to call PPCS on 020 987 16567 to notify them of the urgency of the situation first</p>"
+                }
             }
         ]
         }) }}

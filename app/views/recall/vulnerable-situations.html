@@ -28,45 +28,117 @@
             items: [
                 {
                     value: "Substance misuse",
-                    text: "Substance misuse"
+                    text: "Substance misuse",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "substance-misuse",
+                            name: "substance-misuse",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Suicide or self-harm risk",
-                    text: "Suicide or self-harm risk"
+                    text: "Suicide or self-harm risk",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "suicide-selfharm",
+                            name: "suicide-selfharm",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Domestic abuse",
-                    text: "Domestic abuse"
+                    text: "Domestic abuse",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "domestic-abuse",
+                            name: "domestic-abuse",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Learning difficulties",
-                    text: "Learning difficulties"
+                    text: "Learning difficulties",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "learning-difficulties",
+                            name: "learning-difficulties",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Mental health concern",
-                    text: "Mental health concern"
+                    text: "Mental health concern",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "mental-health",
+                            name: "mental-health",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Adult/children safeguarding",
-                    text: "Adult/children safeguarding"
+                    text: "Adult/children safeguarding",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "safeguarding",
+                            name: "safeguarding",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Bereavement",
-                    text: "Bereavement"
+                    text: "Bereavement",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "bereavement",
+                            name: "bereavement",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Relationship breakdown",
-                    text: "Relationship breakdown"
+                    text: "Relationship breakdown",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "relationship-breakdown",
+                            name: "relationship-breakdown",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Other",
                     text: "Other",
                     conditional: {
-                        html: govukInput({
-                            id: "other-situation",
-                            name: "other-situation",
+                        html: govukTextarea({
+                            id: "other",
+                            name: "other",
                             label: {
-                                text: "Describe it here"
+                                text: "Desribe the key issues in your own words"
                             }
                         })
                     }
@@ -93,7 +165,7 @@
                     value: "Other",
                     text: "Other",
                     conditional: {
-                        html: govukInput({
+                        html: govukTextarea({
                             id: "other-issue",
                             name: "other-issue",
                             label: {

@@ -23,42 +23,96 @@
                 }
             },
             hint: {
-                text: "These are the licence conditions agreed on last release. Select any that have been breached."
+                text: "These are the licence conditions agreed on last release, as they are recorded in nDelius. Select any that have been breached."
             },
             items: [
                 {
                     value: "Not to travel abroad",
-                    text: "Not to travel abroad"
+                    text: "Not to travel abroad",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "travel-abroad",
+                            name: "travel-abroad",
+                            label: {
+                                text: "Desribe the breach in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Not to commit any other offences",
-                    text: "Not to commit any other offences"
+                    text: "Not to commit any other offences",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "further-offences",
+                            name: "further-offences",
+                            label: {
+                                text: "Desribe the breach in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Not to live at an unapproved premises without COM's permission",
-                    text: "Not to live at an unapproved premises without COM's permission"
+                    text: "Not to live at an unapproved premises without COM's permission",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "unauthorised-adress",
+                            name: "unauthorised-adress",
+                            label: {
+                                text: "Desribe the breach in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Be of good behaviour",
-                    text: "Be of good behaviour"
+                    text: "Be of good behaviour",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "bad-behaviour",
+                            name: "bad-behaviour",
+                            label: {
+                                text: "Desribe the breach in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Be in touch with the supervising officer",
-                    text: "Be in touch with the supervising officer"
+                    text: "Be in touch with the supervising officer",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "intouch-supervisor",
+                            name: "intouch-supervisor",
+                            label: {
+                                text: "Desribe the breach in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Receive visits from the supervising officer",
-                    text: "Receive visits from the supervising officer"
+                    text: "Receive visits from the supervising officer",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "visit-supervisor",
+                            name: "visit-supervisor",
+                            label: {
+                                text: "Desribe the breach in your own words"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Other",
                     text: "Other",
                     conditional: {
-                        html: govukInput({
+                        html: govukTextarea({
                             id: "other-reason",
                             name: "other-reason",
                             label: {
-                                text: "Describe it here"
+                                text: "Desribe the breach in your own words"
                             }
                         })
                     }
