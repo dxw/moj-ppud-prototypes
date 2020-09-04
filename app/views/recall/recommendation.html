@@ -35,6 +35,16 @@
             ]
         }) }}
 
+        {{ govukTextarea({
+            name: "recall-reasoning",
+            id: "recall-reasoning",
+            label: {
+                text: "Explain your reasons why the recall is necessary",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            }
+        }) }}
+
         <h2 class="govuk-heading-m">Who should countersign this?</h2>
 
         {{ govukInput({

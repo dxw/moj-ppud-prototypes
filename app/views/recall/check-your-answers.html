@@ -14,7 +14,47 @@
             rows: [
                 {
                     key: {
-                        text: "Is it an emergency?"
+                      text: "Offender"
+                },
+                    value: {
+                      html: "75/721445A<br>Jack Johnson<br>DOB: 23 Feb 1970"
+                }
+                },
+                {
+                    key: {
+                        text: "Which active sentence?"
+                    },
+                    value: {
+                        text: data['sentence-breached'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/sentence-breached",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Great danger to public?"
+                    },
+                    value: {
+                        text: data['danger-to-public'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/sentence-breached",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Informed PPCS?"
                     },
                     value: {
                         text: data['is-emergency'] | capitalize
@@ -30,38 +70,6 @@
                 },
                 {
                     key: {
-                        text: "Offender"
-                    },
-                    value: {
-                        html: "75/721445A<br>Jack Johnson<br>DOB: 23 Feb 1970"
-                    },
-                    actions: {
-                        items: [
-                            {
-                                href: "#",
-                                text: "Change"
-                            }
-                        ]
-                    }
-                },
-                {
-                    key: {
-                        text: "What is the breach of licence for?"
-                    },
-                    value: {
-                        text: data['sentence-breached'] | capitalize
-                    },
-                    actions: {
-                        items: [
-                            {
-                                href: "#",
-                                text: "Change"
-                            }
-                        ]
-                    }
-                },
-                {
-                    key: {
                         text: "How has the licence been breached?"
                     },
                     value: {
@@ -70,7 +78,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/breach-reason",
                                 text: "Change"
                             }
                         ]
@@ -78,7 +86,23 @@
                 },
                 {
                     key: {
-                        text: "Is the offender in a situation that makes them vulnerable?"
+                        text: "Sexual/violent breaches"
+                    },
+                    value: {
+                        html: data['violent-nature'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/breach-reason",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Vulnerability concerns"
                     },
                     value: {
                         html: data['vulnerable-situations'] | array2br
@@ -86,7 +110,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/vulnerable-situations",
                                 text: "Change"
                             }
                         ]
@@ -102,7 +126,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/vulnerable-situations",
                                 text: "Change"
                             }
                         ]
@@ -118,7 +142,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/location",
                                 text: "Change"
                             }
                         ]
@@ -134,7 +158,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/vlo",
                                 text: "Change"
                             }
                         ]
@@ -150,23 +174,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
-                                text: "Change"
-                            }
-                        ]
-                    }
-                },
-                {
-                    key: {
-                        text: "Index offence additions"
-                    },
-                    value: {
-                        text: data['add-index-offence']
-                    },
-                    actions: {
-                        items: [
-                            {
-                                href: "#",
+                                href: "/recall/oasys",
                                 text: "Change"
                             }
                         ]
@@ -182,7 +190,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/supervision-response",
                                 text: "Change"
                             }
                         ]
@@ -198,7 +206,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/other-measures",
                                 text: "Change"
                             }
                         ]
@@ -209,12 +217,28 @@
                         text: "What's your recommendation?"
                     },
                     value: {
-                        text: data['recommendation'] | capitalize + " recall"
+                        text: data['recommendation'] | capitalize + " Standard recall"
                     },
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/recommendation",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Reason for recommendation"
+                    },
+                    value: {
+                        text: data['recall-reasoning']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/recommendation",
                                 text: "Change"
                             }
                         ]
@@ -230,7 +254,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/recommendation",
                                 text: "Change"
                             }
                         ]
@@ -246,7 +270,7 @@
                     actions: {
                         items: [
                             {
-                                href: "#",
+                                href: "/recall/previous-convictions",
                                 text: "Change"
                             }
                         ]
