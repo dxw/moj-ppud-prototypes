@@ -23,7 +23,7 @@
                 }
             },
             hint: {
-                text: "These are the licence conditions agreed on last release, as they are recorded in nDelius. Select any that have been breached."
+                text: "These are the latest version of the licence conditions as recorded in nDelius. Select any that have been breached."
             },
             items: [
                 {
@@ -137,7 +137,16 @@
             items: [
                 {
                     value: "yes",
-                    text: "Yes"
+                    text: "Yes",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "unauthorised-adress",
+                            name: "unauthorised-adress",
+                            label: {
+                                text: "Give more context into this nature of the breach"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "no",

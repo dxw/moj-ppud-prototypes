@@ -9,14 +9,14 @@
         {% include "recall/_side-navigation.html" %}
     </div>
     <div class="govuk-grid-column-two-thirds">
-        <form action="/recall/breach-reason">
+        <form action="/recall/index-offence">
         {{ govukRadios({
         idPrefix: "is-emergency",
         name: "is-emergency",
         classes: "govuk-radios--inline",
         fieldset: {
             legend: {
-                text: "Have you called PPCS about the emergency recall?",
+                text: "Have you or someone in your team called PPCS about the emergency recall?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }

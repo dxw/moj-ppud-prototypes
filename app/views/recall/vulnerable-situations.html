@@ -17,13 +17,13 @@
             name: "vulnerable-situations",
             fieldset: {
                 legend: {
-                text: "Is Jack Johnson in a situation that makes them vulnerable?",
+                text: "Which vulnerability concerns apply to this recall request?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
                 }
             },
             hint: {
-                text: "Select any that apply to this offender."
+                text: "Select any that apply to this offender or other affected individuals "
             },
             items: [
                 {
@@ -159,7 +159,16 @@
             items: [
                 {
                     value: "Intention to go back to prison",
-                    text: "Intention to go back to prison"
+                    text: "Intention to go back to prison",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "other-issue",
+                            name: "other-issue",
+                            label: {
+                                text: "How did you arrive at this conclusion?"
+                            }
+                        })
+                    }
                 },
                 {
                     value: "Other",

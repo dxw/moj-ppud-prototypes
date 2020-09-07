@@ -10,6 +10,9 @@
         {% include "recall/_side-navigation.html" %}
     </div>
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Last registered address</h1>
+      <p class="govuk-body">The last registered address for Jack Johnson, as per nDelius is:</p>
+      <p class="govuk-body">2 Infirmary Street, Leeds, LS1 2JP</p>
         <form action="/recall/vlo">
         {{ govukRadios({
             idPrefix: "offender-location",
