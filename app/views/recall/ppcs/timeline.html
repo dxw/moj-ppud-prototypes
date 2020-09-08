@@ -1,0 +1,100 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+{% set currentPage = 'todo' %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">
+            Jack Johnson's emergency recall
+        </h1>
+        
+        <div class="moj-timeline">
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Currently in Leeds Central Police Station</h2>
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-14T14:01:00.000Z">since 30 August 2020</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          
+        </div>
+
+        </div>
+
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Breach of licence</h2>
+
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-07T12:32:00.000Z">on 28 August 2020</time>
+        </p>
+
+        <div class="moj-timeline__description"><strong>COM:</strong> The offender threatened the victim's family and is likely to commit a violent offence towards them</div>
+
+        </div>
+
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Sentencing date</h2>
+
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-06T09:12:00.000Z">20 Feburary 2001</time>
+        </p>
+
+        <div class="moj-timeline__description">Minimum term 18 years</div>
+
+        </div>
+
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Arrested</h2>
+
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-05-28T10:45:00.000Z">on 20 June 2000</time>
+        </p>
+
+        <div class="moj-timeline__description">Index offence: Murder</div>
+
+        </div>
+
+        <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Offence commited</h2>
+
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-05-28T10:15:00.000Z">10 June 2000</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          
+        </div>
+
+        </div>
+
+    
+        </div> 
+    </div>
+</div>
+{% endblock %}

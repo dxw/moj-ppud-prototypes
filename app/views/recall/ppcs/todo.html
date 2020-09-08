@@ -1,0 +1,187 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+{% set currentPage = 'todo' %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">
+          To do
+        </h1>
+
+        <h2 class="govuk-heading-m">
+          <span class="govuk-!-font-size-48">3</span> new recalls
+        </h2>
+        {% set viewButton = "<a href='/recall/ppcs/case'>View</a>" %}
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "NOMIS number"
+            },
+            {
+              text: "Priority"
+            },
+            {
+              text: "Name"
+            },
+            {
+              text: "Recall date"
+            },
+            {
+              text: "Due date"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "A721445"
+              },
+              {
+                html: govukTag({text: "Urgent", classes: "govuk-tag--blue"})
+              },
+              {
+                text: "Jack Johnson"
+              },
+              {
+                text: "1 September 2020 1:00pm"
+              },
+              {
+                text: "1 September 2020 4:30pm"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "B721447"
+              },
+              {
+                html: govukTag({text: "Urgent", classes: "govuk-tag--blue"})
+              },
+              {
+                text: "Ted Smith"
+              },
+              {
+                text: "1 September 2020 - 2:21pm"
+              },
+              {
+                text: "1 September 2020 - 5:21pm"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "F729861"
+              },
+              {
+                html: ""
+              },
+              {
+                text: "John Taylor"
+              },
+              {
+                text: "1 September 2020 - 1:35pm"
+              },
+              {
+                text: "2 September 2020 - 1:35pm"
+              },
+              {
+                html: viewButton
+              }
+            ]
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">
+          <span class="govuk-!-font-size-48">8</span> processed recalls
+
+          <span style="float:right" class="govuk-body-s govuk-!-margin-top-5">
+            <a href="#all">Show all</a>
+          </span>
+        </h2>
+        {% set viewButton = "<a href='#'>View</a>" %}
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "NOMIS number"
+            },
+            {
+              text: "Offender status"
+            },
+            {
+              text: "Name"
+            },
+            {
+              text: "Date of birth"
+            },
+            {
+              text: ""
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Z721443"
+              },
+              {
+                html: "Unlawfully at large"
+              },
+              {
+                text: "Mike John"
+              },
+              {
+                text: "1 March 1973"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "Y721491"
+              },
+              {
+                html: "Unlawfully at large"
+              },
+              {
+                text: "Marc Ruffalo"
+              },
+              {
+                text: "29 December 1979"
+              },
+              {
+                html: viewButton
+              }
+            ],
+            [
+              {
+                text: "F729861"
+              },
+              {
+                html: "Unlawfully at large"
+              },
+              {
+                text: "Christian Aguila"
+              },
+              {
+                text: "6 April 1990"
+              },
+              {
+                html: viewButton
+              }
+            ]
+          ]
+        }) }}
+    </div>
+  </div>
+
+{% endblock %}

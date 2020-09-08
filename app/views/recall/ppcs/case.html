@@ -1,0 +1,274 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+
+{% set currentPage = 'todo' %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Access Jack Johnson's emergency recall
+        </h1>
+        {{ govukAccordion({
+        id: "accordion-default",
+        items: [
+            {
+            expanded: true,
+            heading: {
+                text: "About the offender"
+            },
+            content: {
+                html:  govukSummaryList({
+                            rows: [
+                                {
+                                key: {
+                                    text: "First name"
+                                },
+                                value: {
+                                    text: "Jack"
+                                }
+                                },
+                                {
+                                key: {
+                                    text: "Family name"
+                                },
+                                value: {
+                                    text: "Johnson"
+                                }
+                                },
+                                {
+                                key: {
+                                    text: "Date of birth"
+                                },
+                                value: {
+                                    text: "20 September 1976 (44 years)"
+                                }
+                                },
+                                {
+                                key: {
+                                    text: "Last known address"
+                                },
+                                value: {
+                                    text: "123 High Street, London, N1 2BC"
+                                }
+                                },
+                                {
+                                key: {
+                                    text: "Gender"
+                                },
+                                value: {
+                                    text: "Male"
+                                }
+                                },
+                                {
+                                key: {
+                                    text: "PNC number"
+                                },
+                                value: {
+                                    text: "75/721445A"
+                                }
+                                }
+                                
+                            ]
+                        })
+            }
+            },
+            {
+            heading: {
+                text: "Reason for the recall"
+            },
+            content: {
+                html: "<p class='govuk-body'>Jack Johnson has been found to be in breach of the following conditions: <ul class='govuk-list govuk-list--bullet'><li>The offender threatened the victim’s family and is likely to commit an offence towards them</li></ul></p>"
+            }
+            },
+            {
+            heading: {
+                text: "Index offence"
+            },
+            content: {
+                html: "<p class='govuk-body'>On the 20 December 2000, Jack Johnson drove to Mulholland Drive in Little Whinging, where he spotted the victim, Tom Riddle, sat in a car. Tom Riddle was the new partner of Jack Johnson's ex-partner. Jack Johnson got out of his own car, holding a handgun and Mr Riddle. He fired 4 shots at point blank range at him, at aboout 8.30pm. All shots hit the victim, once in the head, once in the right shoulder and twice in the chest. The victim was later pronounced dead at the scene by the attending doctor. The offender first fled the scene in his own car, and later handed himself at Little Whinging Police Station at around 10.45 pm.</p><p class='govuk-body'><a href='#index-offence'>Index offence (PDF)</a></p>"
+            }
+            },
+            {
+            heading: {
+                text: "Licence details"
+            },
+            content: {
+                html: "<ul class='govuk-list govuk-list--bullet'><li>Not to commit any other offences</li><li>Not to travel abroad</li><li>Not to live at an unapproved premises without COM's permission</li><li>Be of good behaviour</li><li>Be in touch with the supervising officer</li><li>Receive visits from the supervising officer</li></ul>"
+            }
+            },
+            {
+            heading: {
+                text: "Previous offences"
+            },
+            content: {
+                html: govukTable({
+                        firstCellIsHeader: false,
+                        head: [
+                            {
+                            text: "Date"
+                            },
+                            {
+                            text: "Offence"
+                            }
+                        ],
+                        rows: [
+                            [
+                            {
+                                text: "2 June 1995"
+                            },
+                            {
+                                text: "Aggravated Burglary"
+                            }
+                            ],
+                            [
+                            {
+                                text: "18 March 1989"
+                            },
+                            {
+                                text: "Handling Stolen Goods"
+                            }
+                            ]
+                        ]
+                        })
+            }
+            },
+            {
+            heading: {
+                text: "Risk of serious harm"
+            },
+            content: {
+                html: govukSummaryList({
+                        rows: [
+                            {
+                            key: {
+                                text: "Public"
+                            },
+                            value: {
+                                text: "High"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Self"
+                            },
+                            value: {
+                                text: "Medium"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Known Adult"
+                            },
+                            value: {
+                                html: "Medium"
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Children"
+                            },
+                            value: {
+                                html: 'Medium'
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Staff"
+                            },
+                            value: {
+                                html: 'Medium'
+                            }
+                            },
+                            {
+                            key: {
+                                text: "Prisoners"
+                            },
+                            value: {
+                                html: 'Medium'
+                            }
+                            }
+                        ]
+                    })
+            }
+            }
+        ]
+        }) }}
+
+        <form action="communicate-decision">
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-9">Offender manager’s recommendation</h2>
+        
+        {{
+            govukSummaryList({
+                rows: [
+                    {
+                    key: {
+                        text: "Written by"
+                    },
+                    value: {
+                        html: "<a href='#com'>Tom Cit</a>"
+                    }
+                    },
+                    {
+                    key: {
+                        text: "Countersigned by"
+                    },
+                    value: {
+                        html: "<a href='#countersigned'>Susan Tag</a>"
+                    }
+                    },
+                    {
+                    key: {
+                        text: "Decision"
+                    },
+                    value: {
+                        html: "<p class='govuk-body'><strong>Standard recall</strong><br>Indefinite with periodic reviews</p>"
+                    }
+                    }
+                ]
+            })
+        }}
+        
+
+        {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "agree-recommendation",
+                name: "agree-recommendation",
+                fieldset: {
+                    legend: {
+                    text: "Do you agree with the recommendation?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                items: [
+                    {
+                        value: "yes",
+                        text: "Yes"
+                    },
+                    {
+                        value: "no",
+                        text: "No",
+                        conditional: {
+                            html: govukTextarea({
+                                id: "decline-reason",
+                                name: "decline-reason",
+                                label: {
+                                    text: "Give a reason"
+                                }
+                            })
+                        }
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
