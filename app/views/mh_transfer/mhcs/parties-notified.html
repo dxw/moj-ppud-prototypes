@@ -1,0 +1,26 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ mojBanner({
+            type: 'success',
+            html: '<strong>All the parties have been notified',
+            iconFallbackText: 'Success'
+        }) }}
+
+        <p class="govuk-body">
+           <strong> You no longer need to:</strong>
+        </p>
+        <ul class='govuk-list govuk-list--bullet'>
+            <li>Check in NOMIS if the offender is back on custody. The system will check it for you, and you will be notified when NOMIS has that information.</li>
+            <li>Notify New Scotland Yard that the offender has been brought back to custody because the system will send an automatic email to NSY by checking the offender details on NOMIS.</li>
+        </ul>
+        <p class="govuk-body"><a href="/recall/ppcs/todo" class="govuk-button">Continue to todo list</a></p>
+    </div>
+</div>
+{% endblock %}

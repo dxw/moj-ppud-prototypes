@@ -1,0 +1,49 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+
+{% set currentPage = 'todo' %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Communicate the decision
+        </h1>
+        <p class="govuk-body">You’re about to send a notification of the decision to:</p>
+        <ul class='govuk-list govuk-list--bullet'>
+            <li>The Recall Notification and the Revocation of Licence to PNCB - Referencing and Vetting Services</li>
+            <li>Revocation of Licence - to the police liaison (to be handed after the arrest)</li>
+            <li>Notification of the Recall to Tim Cit, the Community Offender Manger</li>
+        </ul>
+
+        <div class="email-preview govuk-!-padding-5">
+            <p class="govuk-body">Dear colleague,</p>
+
+            <p class="govuk-body">Jack Johnson has been recommended for recall to custody due to the following licence breach:</p>
+
+            <p class="govuk-body"><strong>Licence breach: </strong> The offender threatened the victim’s family and is likely to commit an offence towards them</p>
+
+            <p class="govuk-body"><strong>Prisoner name, surname, DOB:</strong> Jack Johnson, 20 September 1976 <br>
+            Prison number: A721445</p>
+
+            <p class="govuk-body">We are recommending the following recall type:</p>
+
+            <p class="govuk-body">Recall type: Standard recall</p>
+
+            <p class="govuk-body">Best,<br>
+            Recall Team, PPCSS</p>
+        </div>
+
+        <form action="parties-notified">
+
+            <div class="govuk-!-margin-top-7">
+            {{ govukButton({
+                text: "Submit"
+            }) }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

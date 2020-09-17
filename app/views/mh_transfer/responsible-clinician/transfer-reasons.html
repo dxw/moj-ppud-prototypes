@@ -1,0 +1,43 @@
+{% extends "mh_transfer/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "transfer-reasons" %}
+        {% include "mh_transfer/responsible-clinician/__side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/mh_transfer/responsible-clinician/high-security">
+          <h1 class="govuk-heading-l">Nature of disorder and transfer reasons</h1>
+
+          {{ govukTextarea({
+              name: "mental-disorder",
+              id: "mental-disorder",
+              label: {
+                  text: "What are the mental disorders this prisoner is suffering from?",
+                  classes: "govuk-label--m",
+                  isPageHeading: true
+              }
+          }) }}
+
+          {{ govukTextarea({
+              name: "disorder-detainment",
+              id: "disorder-detainment",
+              label: {
+                  text: "How does the nature or degree of the mental disorders make it appropriate for detainment in hospital?",
+                  classes: "govuk-label--m",
+                  isPageHeading: true
+              }
+          }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

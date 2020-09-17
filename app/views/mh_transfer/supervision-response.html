@@ -1,0 +1,53 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "supervision-response" %}
+        {% include "recall/_side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/recall/other-measures">
+        {{ govukRadios({
+            idPrefix: "supervision-response",
+            name: "supervision-response",
+            fieldset: {
+                legend: {
+                    text: "How do you think they've been responding to supervision?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "Satisfactory",
+                    text: "Satisfactory"
+                },
+                {
+                    value: "Unsatisfactory",
+                    text: "Unsatisfactory"
+                }
+            ]
+        }) }}
+
+        {{ govukTextarea({
+            name: "add-index-offence",
+            id: "add-index-offence",
+            label: {
+                text: "Add",
+                classes: "govuk-label--m",
+                isPageHeading: false
+            }
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

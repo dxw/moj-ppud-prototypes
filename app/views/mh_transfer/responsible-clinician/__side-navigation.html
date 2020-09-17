@@ -1,0 +1,49 @@
+{%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+{{ mojSideNavigation({
+  label: 'Side navigation',
+  classes: "govuk-!-padding-0",
+  sections: [
+      {
+        heading: {
+            text: 'Apply for admitting an offender in prison or custody to hospital for mental health treatment '
+        },
+        items: [{
+          text: 'Where is the offender',
+          href: '/mh_transfer/responsible-clinician/which-section-rc',
+          active: currentPage == 'which-section-rc'
+
+        }, {
+          text: 'Find the prisoner',
+          href: '/mh_transfer/responsible-clinician/search-rc',
+          active: currentPage == 'search-rc'
+
+        }, {
+          text: 'Other responsible clinician',
+          href: '/mh_transfer/responsible-clinician/other-rc',
+          active: currentPage == 'other-rc'
+
+        }, {
+          text: 'Examination details',
+          href: '/mh_transfer/responsible-clinician/examination',
+          active: currentPage == 'examination'
+
+        }, {
+            text: 'Your details',
+            href: '/mh_transfer/responsible-clinician/about-you',
+            active: currentPage == 'about-you'
+
+        }, {
+            text: 'Nature of disorder and transfer reasons',
+            href: '/mh_transfer/responsible-clinician/transfer-reasons',
+            active: currentPage == 'transfer-reasons'
+
+        }, {
+            text: 'Security level',
+            href: '/mh_transfer/responsible-clinician/high-security',
+            active: currentPage == 'high-security'
+        }]
+      }
+  ]
+
+}) }}

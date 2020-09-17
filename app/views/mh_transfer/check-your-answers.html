@@ -1,0 +1,289 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/recall/confirmation">
+        <h1 class="govuk-heading-l">Check your answers</h1>
+
+        {{ govukSummaryList({
+            classes: 'govuk-!-margin-bottom-9',
+            rows: [
+                {
+                    key: {
+                      text: "Offender"
+                },
+                    value: {
+                      html: "75/721445A<br>Jack Johnson<br>DOB: 23 Feb 1970"
+                }
+                },
+                {
+                    key: {
+                        text: "Which active sentence?"
+                    },
+                    value: {
+                        text: data['sentence-breached'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/sentence-breached",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Great danger to public?"
+                    },
+                    value: {
+                        text: data['danger-to-public'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/sentence-breached",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Informed PPCS?"
+                    },
+                    value: {
+                        text: data['is-emergency'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/emergency",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "How has the licence been breached?"
+                    },
+                    value: {
+                        html: data['breach-reason'] | array2br
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/breach-reason",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Sexual/violent breaches"
+                    },
+                    value: {
+                        html: data['violent-nature'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/breach-reason",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Vulnerability concerns"
+                    },
+                    value: {
+                        html: data['vulnerable-situations'] | array2br
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/vulnerable-situations",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Any other issues the police should be aware of?"
+                    },
+                    value: {
+                        html: data['other-issues'] | array2br
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/vulnerable-situations",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Where is the offender now?"
+                    },
+                    value: {
+                        text: data['offender-location']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/location",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Have you talked to the VLO?"
+                    },
+                    value: {
+                        text: data['vlo-contacted']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/vlo",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "OASys additions"
+                    },
+                    value: {
+                        text: data['add-oasys']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/oasys",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "How do you think they've been responding to supervision?"
+                    },
+                    value: {
+                        text: data['supervision-response']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/supervision-response",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "What other measures have you tried before the recall request?"
+                    },
+                    value: {
+                        text: data['other-measures']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/other-measures",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "What's your recommendation?"
+                    },
+                    value: {
+                        text: data['recommendation'] | capitalize + " Standard recall"
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/recommendation",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Reason for recommendation"
+                    },
+                    value: {
+                        text: data['recall-reasoning']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/recommendation",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Who should countersign this?"
+                    },
+                    value: {
+                        html: data['countersign-name'] + '<br>' + data['countersign-email']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/recommendation",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Previous convictions"
+                    },
+                    value: {
+                        html: "Attached"
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/recall/previous-convictions",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Confirm and submit"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

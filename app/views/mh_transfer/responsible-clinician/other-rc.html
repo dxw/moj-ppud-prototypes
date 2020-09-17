@@ -1,0 +1,45 @@
+{% extends "mh_transfer/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "other-rc" %}
+        {% include "mh_transfer/responsible-clinician/__side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/mh_transfer/responsible-clinician/examination">
+          <h1 class="govuk-heading-l">The other responsible clinician</h1>
+          <p>This is the second medical professional who will need to give their opinion on the transfer request. They will be notified via email once you fill in their details below.</p>
+
+
+          {{ govukInput({
+            label: {
+              text: "What is their name?"
+            },
+            id: "full-name-other",
+            name: "full-name-other",
+            autocomplete: "name",
+            spellcheck: false
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "What is their email address?"
+            },
+            id: "email-other",
+            name: "email-other",
+            autocomplete: "email",
+            spellcheck: false
+          }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

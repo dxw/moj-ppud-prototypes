@@ -1,0 +1,225 @@
+{% extends "mh_transfer/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/mh_transfer/responsible-clinician/check-your-answers">
+        <h1 class="govuk-heading-l">Check your answers</h1>
+
+        {{ govukSummaryList({
+            classes: 'govuk-!-margin-bottom-9',
+            rows: [
+                {
+                    key: {
+                      text: "Offender"
+                },
+                    value: {
+                      html: "721445A<br>Jack Johnson<br>DOB: 23 Feb 1970"
+                }
+                },
+                {
+                    key: {
+                        text: "Where is the offender?"
+                    },
+                    value: {
+                        text: data['which-section'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/which-section-rc",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Other responsible clinician's name"
+                    },
+                    value: {
+                        text: data['full-name-other'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/other-rc",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Other responsible clinician's email"
+                    },
+                    value: {
+                        text: data['email-other'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/other-rc",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Examination date"
+                    },
+                    value: {
+                        text: data['examination-date']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/examination",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Examination location"
+                    },
+                    value: {
+                        text: data['examination-location']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/examination",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Your name"
+                    },
+                    value: {
+                        html: data['full-name'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/about-you",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Qualifications"
+                    },
+                    value: {
+                        html: data['quals'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/about-you",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Status in prison"
+                    },
+                    value: {
+                        html: data['status-in-prison'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/about-you",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Section 12 Registered?"
+                    },
+                    value: {
+                        html: data['section12-registered'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/about-you",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Mental disorder"
+                    },
+                    value: {
+                        html: data['mental-disorder'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/transfer-reasons",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "Transfer reason"
+                    },
+                    value: {
+                        html: data['disorder-detainment'] | capitalize
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/transfer-reasons",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: {
+                        text: "High Security?"
+                    },
+                    value: {
+                        html: data['high-security']
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/mh_transfer/responsible-clinician/high-security",
+                                text: "Change"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Confirm and submit"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

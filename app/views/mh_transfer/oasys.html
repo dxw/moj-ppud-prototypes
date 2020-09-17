@@ -1,0 +1,89 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "oasys" %}
+        {% include "recall/_side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">OASys</h1>
+        <p class="govuk-body">The most recent OASys assessment for the person in question shows their risk profile as:</p>
+        <form action="/recall/supervision-response">
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                key: {
+                    text: "Public"
+                },
+                value: {
+                    text: "High"
+                }
+                },
+                {
+                key: {
+                    text: "Self"
+                },
+                value: {
+                    text: "Medium"
+                }
+                },
+                {
+                key: {
+                    text: "Known Adult"
+                },
+                value: {
+                    html: "Medium"
+                }
+                },
+                {
+                key: {
+                    text: "Children"
+                },
+                value: {
+                    html: 'Medium'
+                }
+                },
+                {
+                key: {
+                    text: "Staff"
+                },
+                value: {
+                    html: 'Medium'
+                }
+                },
+                {
+                key: {
+                    text: "Prisoners"
+                },
+                value: {
+                    html: 'Medium'
+                }
+                }
+            ]
+        }) }}
+
+        {{ govukTextarea({
+            name: "add-oasys",
+            id: "add-oasys",
+            label: {
+                text: "Add",
+                classes: "govuk-label--m",
+                isPageHeading: false
+            }
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

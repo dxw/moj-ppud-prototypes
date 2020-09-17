@@ -1,0 +1,92 @@
+{% extends "mh_transfer/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "about-you" %}
+        {% include "mh_transfer/responsible-clinician/__side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/mh_transfer/responsible-clinician/transfer-reasons">
+          <h1 class="govuk-heading-l">Your details</h1>
+
+          {{ govukInput({
+            label: {
+              text: "Full name"
+            },
+            id: "full-name",
+            name: "full-name",
+            autocomplete: "name",
+            spellcheck: false
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Qualifications"
+            },
+            id: "quals",
+            name: "quals",
+            autocomplete: "quals",
+            spellcheck: false
+          }) }}
+
+          {{ govukRadios({
+            idPrefix: "status-in-prison",
+            name: "status-in-prison",
+            fieldset: {
+              legend: {
+                text: "What's your status in the prison healthcare team?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+            {
+              value: "General Practitioner",
+              text: "General Pracititoner"
+            },
+            {
+              value: "Psychiatrist",
+              text: "Psychiatrist"
+            },
+            {
+              value: "Locum psychiatrist",
+              text: "Locum psychiatrist"
+            }
+            ]
+          }) }}
+
+          {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "section12-registered",
+            name: "section12-registered",
+            fieldset: {
+              legend: {
+                text: "Are you approved under Section 12 of the Mental Health Act 1983?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+      }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

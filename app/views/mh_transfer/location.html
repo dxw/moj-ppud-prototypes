@@ -1,0 +1,103 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "location" %}
+        {% include "recall/_side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Last registered address</h1>
+      <p class="govuk-body">The last registered address for Jack Johnson, as per nDelius is:</p>
+      <p class="govuk-body">2 Infirmary Street, Leeds, LS1 2JP</p>
+        <form action="/recall/vlo">
+        {{ govukRadios({
+            idPrefix: "offender-location",
+            name: "offender-location",
+            fieldset: {
+                legend: {
+                    text: "Where is Jack Johnson now?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "Prison",
+                    text: "Prison",
+                    conditional: {
+                        html: govukInput({
+                            id: "prison-name",
+                            name: "prison-name",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Court",
+                    text: "Court",
+                    conditional: {
+                        html: govukInput({
+                            id: "court-name",
+                            name: "court-name",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Police custody",
+                    text: "Police custody",
+                    conditional: {
+                        html: govukInput({
+                            id: "police-force",
+                            name: "police-force",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Last registered address",
+                    text: "Last registered address",
+                    conditional: {
+                        html: govukInput({
+                            id: "other-location",
+                            name: "other-location",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Not sure",
+                    text: "Not sure",
+                    conditional: {
+                        html: govukInput({
+                            id: "other-location",
+                            name: "other-location",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

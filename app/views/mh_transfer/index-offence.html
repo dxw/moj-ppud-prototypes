@@ -1,0 +1,85 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "index-offence" %}
+        {% include "recall/_side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Index offence details</h1>
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            The details of the index offence are pulled directly from the latest OASys report. You no longer have to write these details.
+          </strong>
+      </div>
+        <form action="/recall/breach-reason">
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                key: {
+                    text: "Offence details"
+                },
+                value: {
+                    text: "On the 20 December 2000, Jack Johnson drove to Mulholland Drive in Little Whinging, where he spotted the victim, Tom Riddle, sat in a car. Tom Riddle was the new partner of Jack Johnson's ex-partner. Jack Johnson got out of his own car, holding a handgun and Mr Riddle. He fired 4 shots at point blank range at him, at aboout 8.30pm. All shots hit the victim, once in the head, once in the right shoulder and twice in the chest. The victim was later pronounced dead at the scene by the attending doctor. The offender first fled the scene in his own car, and later handed himself at Little Whinging Police Station at around 10.45 pm."
+                }
+                },
+                {
+                key: {
+                    text: "Where and when did the offender do this?"
+                },
+                value: {
+                    text: "In front of Number 23, Mulholland Drive, on 20 December 2000. This was the address where the victim lived."
+                }
+                },
+                {
+                key: {
+                    text: "How did the offender do it?"
+                },
+                value: {
+                    text: "Pre-planning evident due to the fact that he obtained a gun in advance, loaded it, and traveled the distance to the victim's address."
+                }
+                },
+                {
+                key: {
+                    text: "Who were the victims"
+                },
+                value: {
+                    text: "Mr. Riddle was a former colleague of Mr Johnson, but then got together with Mr Johnson's ex-partner."
+                }
+                },
+                {
+                key: {
+                    text: "Anyone else involved?"
+                },
+                value: {
+                    text: "None"
+                }
+                },
+                {
+                key: {
+                    text: "Why did the offender do it? (motivations & triggers)"
+                },
+                value: {
+                    text: "Mr Johnson reported that he didnt go to that address with the intention of committing a murder, that he took the weapon as protection due to threats he claims he received from the victim. He claims that he shot the victim in self defence as he thought he saw him holding a knife. However the Judges Sentencing Remarks - 'I entirely reject your evidence that Mr Riddle ever threatened you. He had a relationship with your ex partner. He had never come to your property. He had no motive for threatening you. You, on the other hand, had every motive for threatening him'. 'I am quite confident that you in fact deliberately obtained that revolver. It matters not where it was from, but the reason you got it was in order at first to toy with the idea of shooting Mr Riddle, and then I consider that as weeks went by what may have started as a fantasy became more and more real, so that eventually you were determined, as was put to you in cross examination, to execute Mr Riddle, because he offended against you, and you felt that you were the person who would have to produce the necessary retribution'. From previous reviews it is quite clear that at the beginning of sentence the main motivator was Mr Johnson's dismay at his ex-partner leaving him for another man - elements of jealousy being evident. Jack had struggled to recognise and deal with his emotions appropriately. He stated that the main issue was his children and whilst this may have been a genuine concern, I believe that he was possessive over his ex=partner and was angry at their departure from the family home. Jack said Mr Riddle had became involved in discussions regarding the custody of his children as he did not see that it was any of his business and saw this as unwarranted interference. He blames emotional stress of this at the time."
+                }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

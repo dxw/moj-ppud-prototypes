@@ -1,0 +1,49 @@
+{% extends "mh_transfer/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "which-section" %}
+        {% include "mh_transfer/responsible-clinician/__side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/mh_transfer/responsible-clinician/search-rc">
+        {{ govukRadios({
+        idPrefix: "which-section",
+        name: "which-section",
+        fieldset: {
+            legend: {
+                text: "Where is the offender?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+           {
+                value: "prison",
+                text: "Prison",
+                conditional: {
+                  html: "<p>This will trigger a transfer request under <b>Section 47</b> of the Mental Health Act</p>"
+                }
+            },
+            {
+                 value: "custody",
+                 text: "In custody in a non-prison setting",
+                 conditional: {
+                   html: "<p>This will trigger a transfer request under <b>Section 48</b> of the Mental Health Act</p>
+                          <p>This must be an <b>urgent</b> treatment need</p>"
+                 }
+             }
+        ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

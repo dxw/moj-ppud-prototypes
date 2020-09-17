@@ -1,0 +1,63 @@
+{% extends "mh_transfer/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "high-security" %}
+        {% include "mh_transfer/responsible-clinician/__side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/mh_transfer/responsible-clinician/check-your-answers">
+          <h1 class="govuk-heading-l">Security level of the hospital</h1>
+
+            {{ govukRadios({
+                idPrefix: "high-security",
+                name: "high-security",
+                fieldset: {
+                    legend: {
+                        text: "Are you recommending treatment in a high security hospital?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                items: [
+                    {
+                        value: "Yes",
+                        text: "Yes",
+                        conditional: {
+                            html: govukInput({
+                                id: "yes-high-security",
+                                name: "yes-high-security",
+                                label: {
+                                    text: "Give it a reason"
+                                }
+                            })
+                          }
+                    },
+                    {
+                        value: "No",
+                        text: "No",
+                        conditional: {
+                            html: govukInput({
+                                id: "no-high-security",
+                                name: "no-high-security",
+                                label: {
+                                    text: "Give it a reason"
+                                }
+                            })
+                        }
+                    }
+                ]
+            }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

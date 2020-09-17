@@ -1,0 +1,196 @@
+{% extends "recall/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "vulnerable-situations" %}
+        {% include "recall/_side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/recall/location">
+
+        {{ govukCheckboxes({
+            idPrefix: "vulnerable-situations",
+            name: "vulnerable-situations",
+            fieldset: {
+                legend: {
+                text: "Which vulnerability concerns apply to this recall request?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "Select any that apply to this offender or other affected individuals "
+            },
+            items: [
+                {
+                    value: "Substance misuse",
+                    text: "Substance misuse",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "substance-misuse",
+                            name: "substance-misuse",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Suicide or self-harm risk",
+                    text: "Suicide or self-harm risk",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "suicide-selfharm",
+                            name: "suicide-selfharm",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Domestic abuse",
+                    text: "Domestic abuse",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "domestic-abuse",
+                            name: "domestic-abuse",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Learning difficulties",
+                    text: "Learning difficulties",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "learning-difficulties",
+                            name: "learning-difficulties",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Mental health concern",
+                    text: "Mental health concern",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "mental-health",
+                            name: "mental-health",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Adult/children safeguarding",
+                    text: "Adult/children safeguarding",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "safeguarding",
+                            name: "safeguarding",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Bereavement",
+                    text: "Bereavement",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "bereavement",
+                            name: "bereavement",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Relationship breakdown",
+                    text: "Relationship breakdown",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "relationship-breakdown",
+                            name: "relationship-breakdown",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Other",
+                    text: "Other",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "other",
+                            name: "other",
+                            label: {
+                                text: "Desribe the key issues in your own words"
+                            }
+                        })
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukCheckboxes({
+            idPrefix: "other-issues",
+            name: "other-issues",
+            fieldset: {
+                legend: {
+                    text: "Any other issues the police should be aware of?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                }
+            },
+            items: [
+                {
+                    value: "Intention to go back to prison",
+                    text: "Intention to go back to prison",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "other-issue",
+                            name: "other-issue",
+                            label: {
+                                text: "How did you arrive at this conclusion?"
+                            }
+                        })
+                    }
+                },
+                {
+                    value: "Other",
+                    text: "Other",
+                    conditional: {
+                        html: govukTextarea({
+                            id: "other-issue",
+                            name: "other-issue",
+                            label: {
+                                text: "Describe it here"
+                            }
+                        })
+                    }
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

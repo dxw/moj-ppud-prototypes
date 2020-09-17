@@ -1,0 +1,82 @@
+{% extends "mh_transfer/layout.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        {% set currentPage = "examination" %}
+        {% include "mh_transfer/responsible-clinician/__side-navigation.html" %}
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/mh_transfer/responsible-clinician/about-you">
+          <h1 class="govuk-heading-l">Examination details</h1>
+
+            {{ govukDateInput({
+              id: "examination-date",
+              namePrefix: "examination-date",
+              fieldset: {
+                legend: {
+                  text: "When was the examination that led to this transfer request?",
+                  isPageHeading: false
+                }
+              },
+              hint: {
+                text: "The date cannot be older than 2 months from today"
+              },
+              items: [
+                {
+                  classes: "govuk-input--width-2",
+                  name: "Day"
+                },
+                {
+                  classes: "govuk-input--width-2",
+                  name: "Month"
+                },
+                {
+                  classes: "govuk-input--width-4",
+                  name: "Year"
+                }
+              ]
+            }) }}
+
+            {{ govukRadios({
+                idPrefix: "examination-location",
+                name: "examination-location",
+                fieldset: {
+                    legend: {
+                        text: "Where did you examine the prisoner?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                items: [
+                    {
+                        value: "HMP Leeds",
+                        text: "HMP Leeds"
+                    },
+                    {
+                        value: "Another place",
+                        text: "Another place",
+                        conditional: {
+                            html: govukInput({
+                                id: "another-place",
+                                name: "another-place",
+                                label: {
+                                    text: "Describe it here"
+                                }
+                            })
+                        }
+                    }
+                ]
+            }) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+        }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
