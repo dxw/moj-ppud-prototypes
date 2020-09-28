@@ -3,47 +3,42 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  List of prototypes
+    Manage a parole review prototypes
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {{ govukBackLink({
+        text: "Back",
+        href: "/prototypes"
+      }) }}
       <h1 class="govuk-heading-xl">
-        Manage a parole review alpha
+        Manage a parole review
       </h1>
+      <p class="govuk-body">We decided to focus on...</p>
 
       <h2 class="govuk-heading-m">
-        Users and their needs
+        Questions we asked
       </h2>
-      
-      <h3 class="govuk-heading-s">
-        PPCS Caseworkers
-      </h3>
-      {{ govukDetails({
-        summaryText: "Key needs",
-        text: "tbc"
-      }) }}
-
-
-      <h3 class="govuk-heading-s">
-        PPCS Team Manager
-      </h3>
-      {{ govukDetails({
-        summaryText: "Key needs",
-        text: "tbc"
-      }) }}
+      <p class="govuk-body">...</p>
 
       <h2 class="govuk-heading-m">
-        Prototypes
+        What we learned
+      </h2>
+      <p class="govuk-body">...</p>
+
+
+      <h2 class="govuk-heading-m">
+        Prototypes we tested
       </h2>
 
       <div class="moj-timeline">
 
       <div class="moj-timeline__item">
             <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Collect and track documents prototype v1</h2>
+                <h2 class="moj-timeline__title">Collect and track documents prototype v1 (HTML)</h2>
             </div>
             <p class="moj-timeline__date">
                 <time datetime="2020-08-19T00:00:00.000Z">24 August 2020</time>
@@ -58,7 +53,7 @@
         
         <div class="moj-timeline__item">
             <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Check documentation prototype v1</h2>
+                <h2 class="moj-timeline__title">Check documentation prototype v1 (HTML)</h2>
             </div>
             <p class="moj-timeline__date">
                 <time datetime="2020-08-19T00:00:00.000Z">19 August 2020</time>
@@ -100,7 +95,7 @@
 
         <div class="moj-timeline__item">
             <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Tariff expiration date calculation prototype v1</h2>
+                <h2 class="moj-timeline__title">Tariff expiration date calculation prototype v1 (HTML)</h2>
             </div>
             <p class="moj-timeline__date">
                 <time datetime="2020-07-27T00:00:00.000Z">27 July 2020</time>
@@ -126,7 +121,7 @@
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <td class="govuk-table__cell">Include time spent in remand</td>
-                                    <td class="govuk-table__cell">This is required as it is subracted from the minimum term</td>
+                                    <td class="govuk-table__cell">This is required as it is subtracted from the minimum term</td>
                                 </tr>
 
                                 <tr class="govuk-table__row">
@@ -143,32 +138,6 @@
     </div>
 
   </div>
-  <div class="govuk-grid-column-one-third  govuk-!-margin-top-9">
-        <aside class="app-related-items  govuk-!-margin-top-6" role="complementary">
-            <h2 class="govuk-heading-m" id="subsection-title">
-                More information
-            </h2>
-            <nav role="navigation" aria-labelledby="subsection-title">
-            <ul class="govuk-list govuk-!-font-size-16">
-                <li>
-                    <a href="https://docs.google.com/presentation/d/187Ntq3REWUG-xHBzXh3SH5QNJM9W5pQL3Di1F6Z-l1U/edit?usp=sharing">
-                        Living deck
-                    </a>
-                </li>
-                <li>
-                    <a href="https://docs.google.com/presentation/d/1BQ6-3cPTVTe0kWqFq1D2fllQQQKrni76z6wz73a9Y-M/edit?usp=sharing">
-                        Timelines and research
-                    </a>
-                </li>
-                <li>
-                    <a href="https://drive.google.com/drive/u/0/folders/1IEKCt2GBVo5IHeY8bgIOloYpTf7vtxNq">
-                        Show and tells
-                    </a>
-                </li>
-            </ul>
-            </nav>
-        </aside>
-    </div>
 </div>
 
 {% endblock %}

@@ -1,0 +1,62 @@
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Experiments
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+            Technical experiments
+        </h1>
+
+
+        <div class="moj-timeline">
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                    <h2 class="moj-timeline__title">PPUD Legacy API wrapper</h2>
+                </div>
+                <p class="moj-timeline__date">
+                    <time datetime="2020-08-28T00:00:00.000Z">18 September 2020</time>
+                </p>
+                <div class="moj-timeline__description">
+                    <p>We decided to build out a prototype for wrapping the existing MSSQL database with a modern API using a small subset of PPUD shaped data. It will enable is to expose data to authenticated clients, such as any new PPUD replacement services.</p>
+
+                    <p>The API wrapper proves that we can:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Expose structured data from the existing PPUD database</li>
+                        <li>Expose related documents via a data access layer</li>
+                        <li>Use open standards</li>
+                    </ul>
+
+                    <a class="govuk-button" href="https://github.com/dxw/moj-public-protection-api-alpha">View on GitHub</a>
+
+                </div>
+            </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                    <h2 class="moj-timeline__title">PDF validation</h2>
+                </div>
+                <p class="moj-timeline__date">
+                    <time datetime="2020-08-28T00:00:00.000Z">18 August 2020</time>
+                </p>
+                <div class="moj-timeline__description">
+                    <p>We identified an issue where users will accidentally upload incorrect documents on cases.</p>
+                    <p>It is possible to validate PDFs based on their content. Using OCR we can read the text whether it is a scanned document or not.</p>
+                    <p>This experiment only uses simple string matching, matching names can be complicated however as long as we don't prevent users from uploading documents, just advise them to double check where we think text is missing that should go someway to reducing erroneous documents being uploaded.</p>
+                    <a class="govuk-button" href="https://github.com/dxw/moj-ppud-prototypes/commit/754a6e1df40c6e391c404e2b45816b65cd9e537d">View on GitHub</a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

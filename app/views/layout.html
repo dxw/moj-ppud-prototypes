@@ -44,8 +44,25 @@
     homepageUrl: "/",
     serviceName: serviceName,
     serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "/",
+        text: "About",
+        active: currentPage == 'about'
+      },
+      {
+        href: "/prototypes",
+        text: "Prototypes",
+        active: currentPage == 'prototypes'
+      },
+      {
+        href: "/experiments",
+        text: "Experiments"
+      }
+    ]
   }) }}
+  {% block intro %}{% endblock %}
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

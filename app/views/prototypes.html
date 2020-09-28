@@ -1,0 +1,37 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  List of prototypes
+{% endblock %}
+
+{% set currentPage = 'prototypes' %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Prototypes
+      </h1>
+      <p class="govuk-body">Here are all the prototypes we've tested</p>
+
+      <h2 class="govuk-heading-l">Public Protection Casework Section</h2>
+      <ul class="govuk-list">
+        <li><a href="/release">Manage a parole review</a></li>
+        <li><a href="/recall">Manage a recall</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-l">Mental Health Casework Section</h2>
+      <ul class="govuk-list">
+        <li><a href="/mh_transfer">Transfer to or from hospital</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-l">Prisons and Probation Ombudsman</h2>
+      <ul class="govuk-list">
+        <li><a href="/ppo">Investigate a complaint</a></li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

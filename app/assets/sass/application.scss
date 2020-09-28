@@ -53,3 +53,18 @@ $govuk-assets-path: '/govuk/assets/';
         top: 7px;
     }
 }
+
+.intro-page {
+    .govuk-header {
+        border-bottom-color: govuk-colour("black");
+    }
+    .govuk-header__container {
+        border-bottom: none;
+    }
+}
+.intro-panel {
+    background-color: govuk-colour("blue");
+    * {
+        color: govuk-colour("white");
+    }
+}

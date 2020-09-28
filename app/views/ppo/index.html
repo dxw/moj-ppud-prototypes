@@ -1,0 +1,57 @@
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Investigate a complaint prototypes
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukBackLink({
+            text: "Back",
+            href: "/prototypes"
+        }) }}
+        <h1 class="govuk-heading-xl">
+            Investigate a complaint
+        </h1>
+
+        <p class="govuk-body">We decided to focus on...</p>
+
+        <h2 class="govuk-heading-m">
+            Questions we asked
+        </h2>
+        <p class="govuk-body">...</p>
+
+        <h2 class="govuk-heading-m">
+            What we learned
+        </h2>
+        <p class="govuk-body">...</p>
+
+
+        <h2 class="govuk-heading-m">
+            Prototypes we tested
+        </h2>
+
+        <div class="moj-timeline">
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                    <h2 class="moj-timeline__title">Investigate a complaint prototype v1 (PDF)</h2>
+                </div>
+                <p class="moj-timeline__date">
+                    <time datetime="2020-08-28T00:00:00.000Z">18 September 2020</time>
+                </p>
+                <div class="moj-timeline__description">
+                    <p></p>
+                    <a class="govuk-button" href="/public/files/pdf-prototypes/ppo-investigate-complaint.pdf">View</a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

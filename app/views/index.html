@@ -2,23 +2,43 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  List of prototypes
+  Public Protection Unit Database
+{% endblock %}
+
+{% set bodyClasses = "intro-page" %}
+{% set currentPage = 'about' %}
+
+{% block intro %}
+<div class="intro-panel">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full govuk-!-padding-top-6 govuk-!-padding-bottom-4">
+        <h1 class="govuk-heading-xl">
+          Public Protection Unit Database
+        </h1>
+        <p class="govuk-body">What is the project</p>
+        <p class="govuk-body">Where is it going</p>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        PPUD Alpha prototypes
-        <span class="govuk-caption-xl">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/release">Manage a parole review</a></li>
-        <li><a href="/recall">Manage a recall for a previous offender</a></li>
-        <li><a href="/mh_transfer/start">Request mental health treatment for an offender in prison</a></li>
-      </ul>
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Resources</h2>
+
+    <h3 class="govuk-heading-m">Final report</h3>
+    <p class="govuk-body">Final report that summarises the work we've done over the last three months.</p>
+    <p class="govuk-body"><a href="https://docs.google.com/presentation/d/11FFU_sP7LpMGkc2nohWB1SB_ToqttfVsUIP0Ir-f59Q/edit?usp=sharing" class="govuk-link">View</a></p>
+
+    <h3 class="govuk-heading-m">Technical report</h3>
+    <p class="govuk-body"></p>
+    <p class="govuk-body"><a href="#" class="govuk-link">View</a></p>
   </div>
+</div>
+
 
 {% endblock %}
