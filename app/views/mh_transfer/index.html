@@ -18,18 +18,45 @@
             Transfer to or from hospital
         </h1>
 
-        <p class="govuk-body">We decided to focus on...</p>
+        <h2 class="govuk-heading-m">
+            What we did
+        </h2>
+        <p class="govuk-body">To request a prisoner transfer to a hospital, the prison has to fill in an H form and send it to MHCS to assess the risk of this transfer and issue a warrant.<br>
+<a href="https://github.com/dxw/moj-ppud-prototypes/blob/main/app/assets/files/pdf-prototypes/h-form-data.png" class="govuk-link">Here’s</a> a list of what the H form asks for and where that data could be pulled from.
+
+We prototyped what a request would look like if it was completed on a digital form. MHCS teams will have a to do list where they can see new and in-progress cases. They’ll also be able to see the completed ones without having to manually check NOMIS.
+
+They can read an overview of  the reasons for the transfer, where they’ll be cared for and the offender’s history. With all the documents for this case. 
+</p>
 
         <h2 class="govuk-heading-m">
-            Questions we asked
+            What we didn't do
         </h2>
-        <p class="govuk-body">...</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Leave requests. Whilst leave requests are higher volume, the process is a bit more simple than transfers where you have an offender moving from the justice system to the mental health system and becoming a patient. We believe that most of what’s applicable to transfers is directly applicable to leave requests - work moving between bands / back and forth with clinical teams to get the right documentation.</li>
+          <li>Understanding in detail the entire journey for a transfer. We've focussed on assessing the risk of a transfer to issue a warrant and making a medical assessment.</li>
+          <li>Transfer from hospital to prison, as we’re assuming the patterns will be similar than the other way around.</li>
+        </ul>
 
         <h2 class="govuk-heading-m">
             What we learned
         </h2>
-        <p class="govuk-body">...</p>
-
+       <ul class="govuk-list govuk-list--bullet">
+           <li>Task list - determining risks</li>
+           <li>surfacing info + docs</li>
+           <li>Patterns worked well</li>
+        </ul>
+        
+        <h2 class="govuk-heading-m">
+            To explore further
+        </h2>
+         <ul class="govuk-list govuk-list--bullet">
+           <li>Even though the task list isn’t needed, some checkpoints need to be added in different pages, as there are different levels of experience within the team.</li>
+             <li>The collaboration with the senior case managers isn't just for one quality check, sometimes they collaborate in cases. This needs more research to give options to share the case with the senior case manager.</li>
+             <li>Related to the previous point, high-profile offenders are assessed by senior case managers. We believe this flow should work for that, but we didn't test with B7 or B9s</li>
+<li>They don’t always contact the Victim Liason Officer. B7s do that for some cases, normally for leaves or transfers to a different hospital. That page needs to be redesigned.</li>
+        </ul>
 
         <h2 class="govuk-heading-m">
             Prototypes we tested
@@ -57,19 +84,24 @@
                         <table class="govuk-table">
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Change</th>
-                                <th scope="col" class="govuk-table__header">Why we made it</th>
+                                <th scope="col" class="govuk-table__header">Deleted task list</th>
+                                <th scope="col" class="govuk-table__header">The structure of the prototype is currently shaped by a linear task list, but we’ve learned that the process is not always linear, and they cross reference different information to do the assessment of the transfer.
+A clear example is: task 4 run the risk assessment. They are doing that task constantly as they go through the documentation.</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <td class="govuk-table__cell">Task list nein</td>
-                                    <td class="govuk-table__cell">reason</td>
+                                    <td class="govuk-table__cell">Split the risk assessment decision into a separate step</td>
+                                    <td class="govuk-table__cell">Because it was confusing for participants to have it next to the offender’s history</td>
                                 </tr>
 
                                 <tr class="govuk-table__row">
-                                    <td class="govuk-table__cell">change</td>
-                                    <td class="govuk-table__cell">reason</td>
+                                    <td class="govuk-table__cell">Added end of sentence date</td>
+                                    <td class="govuk-table__cell">It was missing</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">Deleted 'Transfer risk'</td>
+                                    <td class="govuk-table__cell">It is their job to determine the risk of the transfer. We thought it'd be useful to pull flags from NOMIS but they didn't prove to be useful, although more research is needed on that.</td>
                                 </tr>
                             </tbody>
                         </table>
