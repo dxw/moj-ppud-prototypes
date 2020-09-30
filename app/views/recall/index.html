@@ -53,16 +53,22 @@ to recall requests. For it to work the interface needs to signal to users where 
 </li>
           <li>Decisions that rely on people having a conversation are hard to standardise. The interface should collect clear explanations with the right metadata.</li>
         </ul>
-        
+
         <h2 class="govuk-heading-m">
             To explore further
         </h2>
-        
-        <p class="govuk-body">Regardless of their role or band, people largely need access to the same information about a recall (although for different purposes)
-
-This currently makes the recall process have more unique stages than a future state may require. When PPUD is replaced there may be the need for only minimal (or potentially no) rekeying or manual cross-referencing of information.
-
-This creates a good opportunity to explore teams/roles and where people could spend their time on more useful activities</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>The overview page on 'Assess a recall' needs more testing to really understand what information caseworkers need to see first. 
+              From an asynchronous activity with 5 caseworkers they all needed:
+              <ul class="govuk-list govuk-list--bullet">
+               <li>reason for the recall</li>
+               <li>type of recall</li>
+               <li>sentence details</li>
+               <li>Risk (OASys)</li>
+              </ul>
+              Worth noting that some wanted to see vulnerability issues and history of recalls. </li>
+            <li>Regardless of their role or band, people largely need access to the same information about a recall (although for different purposes). This currently makes the recall process have more unique stages than a future state may require. When PPUD is replaced there may be the need for only minimal (or potentially no) rekeying or manual cross-referencing of information. 
+This creates a good opportunity to explore teams/roles and where people could spend their time on more useful activities</li>
 
 
         <h2 class="govuk-heading-m">
@@ -72,17 +78,55 @@ This creates a good opportunity to explore teams/roles and where people could sp
       <div class="moj-timeline">
         <div class="moj-timeline__item">
             <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Assess an emergency recall v1 (HTML)</h2>
+                <h2 class="moj-timeline__title">Assess an emergency recall v2 (HTML)</h2>
             </div>
             <p class="moj-timeline__date">
                 <time datetime="2020-08-28T00:00:00.000Z">8 September 2020</time>
             </p>
             <div class="moj-timeline__description">
                 <p>Test the process of PPCS assessing an emergency recall</p>
-                <a class="govuk-button" href="/recall/ppcs/todo">View</a>
+                <a class="govuk-button" href="/recall/ppcs/todo">View</a>                
+            </div>
+        <details class="govuk-details govuk-!-margin-bottom-0">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Main changes
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Change</th>
+                                <th scope="col" class="govuk-table__header">Why we made it</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">Redesigned the overview page</td>
+                                    <td class="govuk-table__cell">Because the first version had missing information and the layout didn't help users to find the right information to start assessing a recall.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+          
+          </div>
+          
+           <div class="moj-timeline__item">
+            <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Assess an emergency recall v1 (PDF)</h2>
+            </div>
+            <p class="moj-timeline__date">
+                <time datetime="2020-08-28T00:00:00.000Z">1 September 2020</time>
+            </p>
+            <div class="moj-timeline__description">
+                <p>Test the process of PPCS assessing an emergency recall</p>
+                <a class="govuk-button" href="https://github.com/dxw/moj-ppud-prototypes/blob/main/app/assets/files/pdf-prototypes/ppcs-recall-v1.pdf">View</a>
                 
             </div>
         </div>
+          
         <div class="moj-timeline__item">
             <div class="moj-timeline__header">
                 <h2 class="moj-timeline__title">Cosigning prototype v1 (HTML)</h2>
@@ -99,7 +143,7 @@ This creates a good opportunity to explore teams/roles and where people could sp
           
         <div class="moj-timeline__item">
             <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Initiate a recall v2 (HTML)</h2>
+                <h2 class="moj-timeline__title">Initiate a recall v2 (PNG)</h2>
             </div>
             <p class="moj-timeline__date">
                 <time datetime="2020-08-28T00:00:00.000Z">9 September 2020</time>
