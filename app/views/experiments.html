@@ -16,7 +16,30 @@ Experiments
         </h1>
 
 
+
+
         <div class="moj-timeline">
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                    <h2 class="moj-timeline__title">Technical Architecture diagrams</h2>
+                </div>
+                <p class="moj-timeline__date">
+                    <time datetime="2020-10-05T00:00:00.000Z">05 October 2020</time>
+                </p>
+                <div class="moj-timeline__description">
+                    <p>In order to describe the future system architecture, and perform analysis of the legacy PPUD database, we created a series of diagrams:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Overall system context diagram</li>
+                        <li>Container diagrams for new frontend and API services</li>
+                        <li>Legacy database entity-relationship diagrams</li>
+                        <li>High-level service-oriented ERDs for the legacy database</li>
+                    </ul>
+                    <p>The linked repository contains both rendered diagrams, and PlantUML source code for them.</p>
+                    <a class="govuk-button" href="https://github.com/dxw/moj-ppud-alpha-technical-architecture/tree/main/png">View on GitHub</a>
+                </div>
+            </div>
+
             <div class="moj-timeline__item">
                 <div class="moj-timeline__header">
                     <h2 class="moj-timeline__title">PPUD Legacy API wrapper</h2>
@@ -54,6 +77,23 @@ Experiments
 
                 </div>
             </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                    <h2 class="moj-timeline__title">API Mocks</h2>
+                </div>
+                <p class="moj-timeline__date">
+                    <time datetime="2020-08-05T00:00:00.000Z">5 August 2020</time>
+                </p>
+                <div class="moj-timeline__description">
+                    <p>We identified that access to test environment and APIs may become a blocker to deveopment teams.</p>
+                    <p>In order to remove that blocker, we tested whether it was possible to provide mocked APIs and configure our own test data, using published API specifications.</p>
+                    <p>This application provides mock APIs for the RESTful Prison and Community APIs, as well as the SOAP-style PPUD WAM API, should it be needed.</p>
+                    <a class="govuk-button" href="https://github.com/dxw/moj-ppud-api-mocks">View on GitHub</a>
+
+                </div>
+            </div>
+
         </div>
 
     </div>
